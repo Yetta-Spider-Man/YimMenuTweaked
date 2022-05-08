@@ -10,9 +10,6 @@
     <Filter Include="backend\looped">
       <UniqueIdentifier>{7F2D2C8F-6BFB-1F95-548F-90BB40FCFBF9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="backend\looped\api">
-      <UniqueIdentifier>{4846907C-342A-51D2-9D8A-4B25898D3B54}</UniqueIdentifier>
-    </Filter>
     <Filter Include="backend\looped\hud">
       <UniqueIdentifier>{AF64907C-9B48-51D2-04A9-4B25F0AB3B54}</UniqueIdentifier>
     </Filter>

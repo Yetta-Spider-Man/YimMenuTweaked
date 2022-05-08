@@ -3,6 +3,7 @@
 #include "natives.hpp"
 #include "script.hpp"
 #include "util/entity.hpp"
+#include "gta/enums.hpp"
 
 namespace big
 {
@@ -41,22 +42,27 @@ namespace big
 			Vector3 vel = { 0.f, 0.f, 0.f };
 			float heading = 0.f;
 
-			// Left Shift
-			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 21))
+			//Up
+			if (PAD::IS_CONTROL_PRESSED(2, (int)ControllerInputs::INPUT_JUMP))
 				vel.z += speed / 2;
-			// Left Control
+
+			//Down
 			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 36))
 				vel.z -= speed / 2;
-			// Forward
+
+			//Forward
 			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 32))
 				vel.y += speed;
-			// Backward
+
+			//Backward
 			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 33))
 				vel.y -= speed;
-			// Left
+
+			//Left
 			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 34))
 				vel.x -= speed;
-			// Right
+
+			//Right
 			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 35))
 				vel.x += speed;
 
