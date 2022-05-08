@@ -1,6 +1,7 @@
 #include "backend/looped/looped.hpp"
 #include "natives.hpp"
 #include "util/math.hpp"
+#include "gta/enums.hpp"
 
 namespace big
 {
@@ -54,7 +55,7 @@ namespace big
 		Vector3 vecChange = { 0.f, 0.f, 0.f };
 
 		// Left Shift
-		if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 21))
+		if (PAD::IS_DISABLED_CONTROL_PRESSED(0, (int)ControllerInputs::INPUT_JUMP))
 			vecChange.z += speed / 2;
 		// Left Control
 		if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 36))
