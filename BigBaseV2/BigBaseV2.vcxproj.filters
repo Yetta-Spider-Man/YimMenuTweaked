@@ -401,9 +401,6 @@
     <ClCompile Include="src\backend\backend.cpp">
       <Filter>backend</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\api\login_session.cpp">
-      <Filter>backend\looped\api</Filter>
-    </ClCompile>
     <ClCompile Include="src\backend\looped\hud\hud_transition_state.cpp">
       <Filter>backend\looped\hud</Filter>
     </ClCompile>

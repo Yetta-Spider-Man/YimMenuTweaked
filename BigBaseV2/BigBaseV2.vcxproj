@@ -282,7 +282,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\backend\backend.cpp" />
-    <ClCompile Include="src\backend\looped\api\login_session.cpp" />
     <ClCompile Include="src\backend\looped\hud\hud_transition_state.cpp" />
     <ClCompile Include="src\backend\looped\player\player_never_wanted.cpp" />
     <ClCompile Include="src\backend\looped\player\spectate.cpp" />
