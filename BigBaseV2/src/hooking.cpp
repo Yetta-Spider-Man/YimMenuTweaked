@@ -115,6 +115,8 @@ namespace big
 		m_censor_chat_text_hook.enable();
 
 		m_enabled = true;
+
+		g_gui.m_opened = true; //Auto open on inject
 	}
 
 	void hooking::disable()

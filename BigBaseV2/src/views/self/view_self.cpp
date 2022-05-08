@@ -12,26 +12,23 @@ namespace big
 
 		ImGui::Checkbox("Godmode", &g->self.godmode);
 		ImGui::Checkbox("Off radar", &g->self.off_radar);
-		ImGui::Checkbox("Freecam", &g->self.free_cam);
-		ImGui::Checkbox("Disable phone", &g->tunables.disable_phone);
-
-		ImGui::EndGroup();
-		ImGui::SameLine();
-		ImGui::BeginGroup();
-
-		ImGui::Checkbox("Noclip", &g->self.noclip);
 		ImGui::Checkbox("Fast run", &g->self.fast_run);
-		ImGui::Checkbox("No idle kick", &g->tunables.no_idle_kick); //Should be protection
-
-		ImGui::EndGroup();
-		ImGui::SameLine();
-		ImGui::BeginGroup();
-
 		ImGui::Checkbox("Invisibility", &g->self.invisibility);
 		if (g->self.invisibility)
 			ImGui::Checkbox("Locally visible", &g->self.local_visibility);
 
 		ImGui::EndGroup();
+
+		ImGui::SameLine();
+		ImGui::BeginGroup();
+
+		ImGui::Checkbox("Noclip", &g->self.noclip);
+		ImGui::Checkbox("Freecam", &g->self.free_cam);
+		ImGui::Checkbox("No idle kick", &g->tunables.no_idle_kick); //Should be protection
+		ImGui::Checkbox("Disable phone", &g->tunables.disable_phone);
+
+		ImGui::EndGroup();
+		ImGui::SameLine();
 
 		ImGui::Separator();
 
