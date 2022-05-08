@@ -15,6 +15,7 @@ namespace big
 			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 25))
 			{
 				PLAYER::DISABLE_PLAYER_FIRING(PLAYER::GET_PLAYER_INDEX(), true);
+
 				for (int control : controls)
 					PAD::DISABLE_CONTROL_ACTION(0, control, true);
 
@@ -25,11 +26,8 @@ namespace big
 					if (entity::raycast(&entity))
 					{
 						if (ENTITY::IS_ENTITY_A_PED(entity))
-						{
 							entity::cage_ped(entity);
-						}
 					}
-					else g_notification_service->push_error("Weapons", "No entity found.");
 				}
 			}
 		}

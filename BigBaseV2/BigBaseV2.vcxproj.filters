@@ -419,9 +419,6 @@
     <ClCompile Include="src\backend\looped\self\godmode.cpp">
       <Filter>backend\looped\self</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\invisibility.cpp">
-      <Filter>backend\looped\self</Filter>
-    </ClCompile>
     <ClCompile Include="src\backend\looped\self\noclip.cpp">
       <Filter>backend\looped\self</Filter>
     </ClCompile>
@@ -440,28 +437,19 @@
     <ClCompile Include="src\backend\looped\engine\update_pointers.cpp">
       <Filter>backend\looped\system</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\tunables\disable_phone.cpp">
-      <Filter>backend\looped\tunables</Filter>
-    </ClCompile>
     <ClCompile Include="src\backend\looped\self\tunables\no_idle_kick.cpp">
       <Filter>backend\looped\tunables</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\engine\despawn_bypass.cpp">
       <Filter>backend\looped\vehicle</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\vehicle\drive_on_water.cpp">
-      <Filter>backend\looped\vehicle</Filter>
-    </ClCompile>
     <ClCompile Include="src\backend\looped\vehicle\horn_boost.cpp">
-      <Filter>backend\looped\vehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\backend\looped\vehicle\is_targetable.cpp">
       <Filter>backend\looped\vehicle</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\vehicle\ls_customs.cpp">
       <Filter>backend\looped\vehicle</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\vehicle\rgb_paint.cpp">
+    <ClCompile Include="src\backend\looped\vehicle\rgb\rgb_paint.cpp">
       <Filter>backend\looped\vehicle</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\vehicle\speedo_meter.cpp">
@@ -489,12 +477,6 @@
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\self\weapons\infinite_ammo.cpp">
-      <Filter>backend\looped\weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="src\backend\looped\self\weapons\infinite_mag.cpp">
-      <Filter>backend\looped\weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="src\backend\looped\self\weapons\no_recoil.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\self\weapons\no_spread.cpp">

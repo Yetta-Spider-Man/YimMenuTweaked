@@ -9,10 +9,8 @@ namespace big
 	void view::vehicle_options() 
 	{
 		ImGui::BeginGroup();
-		ImGui::Checkbox("Can be targeted", &g->vehicle.is_targetable);
 		ImGui::Checkbox("Godmode", &g->vehicle.god_mode);
 		ImGui::Checkbox("Horn boost", &g->vehicle.horn_boost);
-		ImGui::Checkbox("Drive on water", &g->vehicle.drive_on_water);
 
 		ImGui::EndGroup();
 		ImGui::SameLine();

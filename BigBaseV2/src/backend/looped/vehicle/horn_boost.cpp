@@ -10,28 +10,20 @@ namespace big
 
 	void backend_vehicle::horn_boost()
 	{
-		if (!g->vehicle.horn_boost) return;
-		
-		const Vehicle veh = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false);
-		if (veh == 0)
-		{
-			hornBoostSpeed = hornBoostSpeedDefault;
+		Player player = PLAYER::PLAYER_ID();
+		Ped ped = PLAYER::PLAYER_PED_ID();
 
+		Vehicle vehicle = PED::GET_VEHICLE_PED_IS_USING(ped);
+
+		if (!g->vehicle.horn_boost)
 			return;
-		}
 
-		if (PAD::IS_CONTROL_JUST_PRESSED(0, (int)ControllerInputs::INPUT_VEH_HORN))
-			hornBoostSpeed = ENTITY::GET_ENTITY_SPEED(veh);
-
-		if (PAD::IS_CONTROL_PRESSED(0, (int)ControllerInputs::INPUT_VEH_HORN))
+		if (PAD::IS_CONTROL_PRESSED(0, (int)ControllerInputs::INPUT_VEH_HORN) && PLAYER::IS_PLAYER_PRESSING_HORN(player))
 		{
-			if (hornBoostSpeed < hostBoostSpeedMax) hornBoostSpeed++;
-
-			const auto velocity =
-				ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(veh, 0.f, hornBoostSpeed, 0.f) - ENTITY::GET_ENTITY_COORDS(veh, true);
-			ENTITY::SET_ENTITY_VELOCITY(veh, velocity.x, velocity.y, velocity.z);
+			if (NETWORK::NETWORK_HAS_CONTROL_OF_ENTITY(vehicle))
+			{
+				VEHICLE::SET_VEHICLE_FORWARD_SPEED(vehicle, 79);
+			}
 		}
-		else if (PAD::IS_CONTROL_JUST_RELEASED(0, (int)ControllerInputs::INPUT_VEH_HORN))
-			hornBoostSpeed = hornBoostSpeedDefault;
 	}
 }

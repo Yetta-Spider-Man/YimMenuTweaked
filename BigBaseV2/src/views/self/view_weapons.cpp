@@ -13,9 +13,9 @@ namespace big
 
 		ImGui::Checkbox("Infinite ammo", &g->weapons.infinite_ammo);
 
-		ImGui::SameLine();
+		ImGui::Checkbox("Nospread bullets", &g->weapons.no_spread);
 
-		ImGui::Checkbox("Infinite clip", &g->weapons.infinite_mag);
+		ImGui::SliderFloat("Damage multiplier", &g->weapons.increased_damage, 1.f, 10.f, "%.1f");
 
 		ImGui::Checkbox("Enable special ammo", &g->weapons.ammo_special.toggle);
 
@@ -41,14 +41,6 @@ namespace big
 
 		ImGui::Checkbox("Force crosshair", &g->weapons.force_crosshairs);
 
-		ImGui::SameLine();
-
-		ImGui::Checkbox("Disable recoil", &g->weapons.no_recoil);
-
-		ImGui::SameLine();
-
-		ImGui::Checkbox("Disable spread", &g->weapons.no_spread);
-
 		if (ImGui::Button("Give all weapons"))
 		{
 			QUEUE_JOB_BEGIN_CLAUSE()
@@ -62,8 +54,6 @@ namespace big
 			}
 			QUEUE_JOB_END_CLAUSE
 		}
-
-		ImGui::SliderFloat("Damage multiplier", &g->weapons.increased_damage, 1.f, 10.f, "%.1f");
 
 		ImGui::Separator();
 

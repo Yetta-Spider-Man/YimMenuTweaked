@@ -14,7 +14,9 @@ namespace big::session
 			*script_global(1575012).as<int*>() = (int)session.id;
 
 		*script_global(1574589).as<int*>() = 1;
+
 		script::get_current()->yield(200ms);
+
 		*script_global(1574589).as<int*>() = 0;
 	}
 

@@ -37,7 +37,6 @@ namespace big
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
-			backend_self::tunables::disable_phone();
 			backend_self::tunables::no_idle_kick();
 
 		}QUEUE_JOB_END_CLAUSE
@@ -46,7 +45,6 @@ namespace big
 		{
 			backend_self::free_cam();
 			backend_self::godmode();
-			backend_self::invisibility();
 			backend_self::off_radar();
 			backend_self::police();
 			backend_self::fast_run();
@@ -81,8 +79,6 @@ namespace big
 			backend_self::weapons::gravity_gun();
 			backend_self::weapons::increased_damage();
 			backend_self::weapons::infinite_ammo();
-			backend_self::weapons::infinite_mag();
-			backend_self::weapons::no_recoil();
 			backend_self::weapons::no_spread();
 			backend_self::weapons::repair_gun();
 			backend_self::weapons::steal_vehicle_gun();
@@ -93,10 +89,8 @@ namespace big
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			backend_engine::vehicle_despawn_bypass();
-			backend_vehicle::drive_on_water();
 			backend_vehicle::godmode();
 			backend_vehicle::horn_boost();
-			backend_vehicle::is_targetable();
 			backend_vehicle::rainbow_paint();
 			backend_vehicle::speedo_meter();
 

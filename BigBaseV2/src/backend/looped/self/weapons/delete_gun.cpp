@@ -26,30 +26,24 @@ namespace big
 					if (entity::raycast(&entity))
 					{
 						if (ENTITY::IS_ENTITY_A_PED(entity) && PED::IS_PED_A_PLAYER(entity))
-						{
 							g_notification_service->push_error("Weapons", "You can't delete player entities!");
-						}
 						else
 						{
 							Vector3 player = ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true);
 							Vector3 entLoc = ENTITY::GET_ENTITY_COORDS(entity, true);
 							double dist = math::distance_between_vectors(player, entLoc);
 
-							if (dist > 500)
-							{
-								g_notification_service->push_error("Weapons", "Entity is too far.");
-							}
-							else
+							if (dist < 500)
 							{
 								if (entity::take_control_of(entity))
-								{
 									entity::delete_entity(entity);
-								}
-								else g_notification_service->push_error("Weapons", "Failed to take control of entity.");
+								else
+									g_notification_service->push_error("Weapons", "Failed to take control of entity.");
 							}
 						}
 					}
-					else g_notification_service->push_error("Weapons", "No entity found.");
+					else
+						g_notification_service->push_error("Weapons", "No entity found.");
 				}
 			}
 		}

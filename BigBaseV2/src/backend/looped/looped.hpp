@@ -24,7 +24,6 @@ namespace big
 	public:
 		static void free_cam();
 		static void godmode();
-		static void invisibility();
 		static void noclip();
 		static void off_radar();
 		static void police();
@@ -33,7 +32,6 @@ namespace big
 		class tunables
 		{
 		public:
-			static void disable_phone(); //This is stupid and useless
 			static void no_idle_kick(); //This should be protection
 		};
 
@@ -44,13 +42,7 @@ namespace big
 			
 			static void ammo_special_type();
 			static void increased_damage();
-
-			//Merge
 			static void infinite_ammo();
-			static void infinite_mag();
-
-			//Merge
-			static void no_recoil();
 			static void no_spread();
 
 			static void repair_gun();
@@ -72,10 +64,8 @@ namespace big
 			static void synced_spasm();
 		};
 	
-		static void drive_on_water(); //Remove (broken and garbage feature to begin with anyway)
 		static void godmode();
-		static void horn_boost(); //Replace
-		static void is_targetable(); //Remove
+		static void horn_boost();
 		static void ls_customs();
 		static void rainbow_paint();
 		static void speedo_meter();

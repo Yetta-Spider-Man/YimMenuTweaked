@@ -18,7 +18,6 @@ namespace big
 		};
 
 		struct tunables {
-			bool disable_phone = false;
 			bool no_idle_kick = false;
 		};
 
@@ -132,7 +131,6 @@ namespace big
 			bool force_wanted_level = false;
 			bool free_cam = false;
 			bool godmode = false;
-			bool invisibility = false;
 			bool never_wanted = false;
 			bool noclip = false;
 			bool off_radar = false;
@@ -193,10 +191,8 @@ namespace big
 				bool left_side = false;
 			};
 
-			bool drive_on_water = false;
 			bool god_mode = false;
 			bool horn_boost = false;
-			bool is_targetable = true;
 			bool ls_customs = false; // don't save this to disk
 			bool pv_teleport_into = false;
 			int rainbow_paint = 0;
@@ -213,9 +209,7 @@ namespace big
 			CustomWeapon custom_weapon = CustomWeapon::NONE;
 			bool force_crosshairs = false;
 			bool infinite_ammo = false;
-			bool infinite_mag = false;
 			float increased_damage = 1;
-			bool no_recoil = false;
 			bool no_spread = false;
 			char vehicle_gun_model[12] = "bus";
 		};
@@ -403,11 +397,9 @@ namespace big
 			this->rgb.b = j["rgb"]["b"];
 			this->rgb.speed = j["rgb"]["speed"];
 
-			this->tunables.disable_phone = j["tunables"]["disable_phone"];
 			this->tunables.no_idle_kick = j["tunables"]["no_idle_kick"];
 
 			this->self.godmode = j["self"]["godmode"];
-			this->self.invisibility = j["self"]["invisibility"];
 			this->self.never_wanted = j["self"]["never_wanted"];
 			this->self.off_radar = j["self"]["off_radar"];
 			this->self.fast_run = j["self"]["fast_run"];
@@ -428,10 +420,8 @@ namespace big
 			this->spoofing.rockstar_id = j["spoofing"]["rockstar_id"];
 			this->spoofing.username = j["spoofing"]["username"];
 
-			this->vehicle.drive_on_water = j["vehicle"]["drive_on_water"];
 			this->vehicle.god_mode = j["vehicle"]["god_mode"];
 			this->vehicle.horn_boost = j["vehicle"]["horn_boost"];
-			this->vehicle.is_targetable = j["vehicle"]["is_targetable"];
 			this->vehicle.pv_teleport_into = j["vehicle"]["pv_teleport_into"];
 			this->vehicle.rainbow_paint = j["vehicle"]["rainbow_paint"];
 
@@ -444,8 +434,6 @@ namespace big
 			this->weapons.force_crosshairs = j["weapons"]["force_crosshairs"];
 			this->weapons.infinite_ammo = j["weapons"]["infinite_ammo"];
 			this->weapons.increased_damage = j["weapons"]["increased_damage"];
-			this->weapons.infinite_mag = j["weapons"]["infinite_mag"];
-			this->weapons.no_recoil = j["weapons"]["no_recoil"];
 			this->weapons.no_spread = j["weapons"]["no_spread"];
 
 			this->weapons.ammo_special.type = (eAmmoSpecialType)j["weapons"]["ammo_special"]["type"];
@@ -584,14 +572,12 @@ namespace big
 				},
 				{
 					"tunables", {
-						{ "disable_phone", this->tunables.disable_phone },
 						{ "no_idle_kick", this->tunables.no_idle_kick }
 					}
 				},
 				{
 					"self", {
 						{ "godmode", this->self.godmode },
-						{ "invisibility", this->self.invisibility },
 						{ "never_wanted", this->self.never_wanted },
 						{ "off_radar", this->self.off_radar },
 						{ "fast_run", this->self.fast_run }
@@ -630,10 +616,8 @@ namespace big
 				},
 				{
 					"vehicle", {
-						{ "drive_on_water", this->vehicle.drive_on_water },
 						{ "god_mode", this->vehicle.god_mode },
 						{ "horn_boost", this->vehicle.horn_boost },
-						{ "is_targetable", this->vehicle.is_targetable },
 						{ "pv_teleport_into", this->vehicle.pv_teleport_into },
 						{ "rainbow_paint", this->vehicle.rainbow_paint },
 						{
@@ -658,8 +642,6 @@ namespace big
 						{ "force_crosshairs", this->weapons.force_crosshairs },
 						{ "increased_damage", this->weapons.increased_damage },
 						{ "infinite_ammo", this->weapons.infinite_ammo },
-						{ "infinite_mag", this->weapons.infinite_mag },
-						{ "no_recoil", this->weapons.no_recoil },
 						{ "no_spread", this->weapons.no_spread }
 					}
 				},

@@ -18,6 +18,7 @@ namespace big
 			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 25))
 			{
 				PLAYER::DISABLE_PLAYER_FIRING(PLAYER::GET_PLAYER_INDEX(), true);
+
 				for (int control : controls)
 					PAD::DISABLE_CONTROL_ACTION(0, control, true);
 
@@ -37,9 +38,11 @@ namespace big
 
 							PED::SET_PED_INTO_VEHICLE(PLAYER::PLAYER_PED_ID(), ent, -1);
 						}
-						else g_notification_service->push_warning("Weapons", "Entity is not a vehicle.");
+						else 
+							g_notification_service->push_warning("Weapons", "Entity is not a vehicle.");
 					}
-					else g_notification_service->push_warning("Weapons", "No entity found.");
+					else 
+						g_notification_service->push_warning("Weapons", "No entity found.");
 				}
 			}
 		}

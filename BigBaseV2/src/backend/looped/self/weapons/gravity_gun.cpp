@@ -43,13 +43,7 @@ namespace big
 						other = ENTITY::GET_ENTITY_COORDS(ent, true);
 						dist = (float)math::distance_between_vectors(location, other);
 
-						if (dist > 500)
-						{
-							ent = 0;
-
-							g_notification_service->push_warning("Weapons", "Entity is too far.");
-						}
-						else
+						if (dist < 500)
 						{
 							if (entity::take_control_of(ent) && ENTITY::IS_ENTITY_A_PED(ent) && !PED::IS_PED_RAGDOLL(ent))
 							{
