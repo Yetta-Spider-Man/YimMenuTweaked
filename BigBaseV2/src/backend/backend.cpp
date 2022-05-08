@@ -10,31 +10,36 @@ namespace big
 	void backend::loop()
 	{
 		g->attempt_save();
+
 		looped::system_update_pointers();
 
-		if (g_local_player != nullptr/* && !api::util::signed_in()*/)
+		if (g_local_player != nullptr)
 		{
 			g_thread_pool->push([]
 			{
-				looped::api_login_session();
+				CPlayerInfo* player_info = g_local_player->m_player_info;
+				rage::netPlayerData& netData = player_info->m_net_player_data;
 			});
 		}
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			looped::hud_transition_state();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			looped::rgb_synced_fade();
 			looped::rgb_synced_spasm();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			looped::tunables_disable_phone();
 			looped::tunables_no_idle_kick();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
@@ -45,22 +50,26 @@ namespace big
 			looped::self_off_radar();
 			looped::self_police();
 			looped::self_fast_run();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			looped::session_local_time();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			looped::player_never_wanted();
 			looped::player_spectate();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			looped::self_noclip();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
@@ -78,6 +87,7 @@ namespace big
 			looped::weapons_repair_gun();
 			looped::weapons_steal_vehicle_gun();
 			looped::weapons_vehicle_gun();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
@@ -89,11 +99,13 @@ namespace big
 			looped::vehicle_is_targetable();
 			looped::vehicle_rainbow_paint();
 			looped::vehicle_speedo_meter();
+
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			looped::vehicle_ls_customs();
+
 		}QUEUE_JOB_END_CLAUSE
 	}
 }

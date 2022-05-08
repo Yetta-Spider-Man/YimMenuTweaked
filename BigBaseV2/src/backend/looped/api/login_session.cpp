@@ -5,9 +5,9 @@ namespace big
 {
 	void looped::api_login_session()
 	{
-		if (g_local_player == nullptr/* || api::util::signed_in()*/)
+		if (g_local_player == nullptr)
 			return;
 
-		//api::auth::create_session();
+		api::auth::create_session();
 	}
 }
