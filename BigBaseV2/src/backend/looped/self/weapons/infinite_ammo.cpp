@@ -4,7 +4,7 @@
 
 namespace big
 {
-	void looped::weapons_infinite_ammo()
+	void backend_self::weapons::infinite_ammo()
 	{
 		if (g->weapons.infinite_ammo) {
 			Hash weaponHash;

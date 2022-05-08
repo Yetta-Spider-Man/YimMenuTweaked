@@ -8,7 +8,7 @@ namespace big
 	static float run_cap = 100.f;
 	static bool super_run_state = false;
 
-	void looped::self_fast_run()
+	void backend_self::fast_run()
 	{
 		Player player = PLAYER::PLAYER_ID();
 

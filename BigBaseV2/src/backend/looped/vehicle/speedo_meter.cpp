@@ -4,7 +4,7 @@
 
 namespace big
 {
-	void looped::vehicle_speedo_meter()
+	void backend_vehicle::speedo_meter()
 	{
 		SpeedoMeter speedo_type = g->vehicle.speedo_meter.type;
 

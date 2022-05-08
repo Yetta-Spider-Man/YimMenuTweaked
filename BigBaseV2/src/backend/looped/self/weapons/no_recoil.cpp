@@ -29,7 +29,7 @@ namespace big
 			: get_og_recoil_value(hash);
 	}
 
-	void looped::weapons_no_recoil()
+	void backend_self::weapons::no_recoil()
 	{
 		if (!g_local_player)
 		{

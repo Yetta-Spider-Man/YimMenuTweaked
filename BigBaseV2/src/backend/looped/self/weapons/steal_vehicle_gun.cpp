@@ -7,7 +7,7 @@ namespace big
 	static const int controls[] = { 14, 15, 24 };
 	static Entity ent;
 
-	void looped::weapons_steal_vehicle_gun()
+	void backend_self::weapons::steal_vehicle_gun()
 	{
 		bool bStealVehicleGun = g->weapons.custom_weapon == CustomWeapon::STEAL_VEHICLE_GUN;
 

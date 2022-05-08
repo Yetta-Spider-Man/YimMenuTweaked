@@ -8,7 +8,7 @@ namespace big
 	static float hornBoostSpeed = hornBoostSpeedDefault;
 	static constexpr float hostBoostSpeedMax = 200.f;
 
-	void looped::vehicle_horn_boost()
+	void backend_vehicle::horn_boost()
 	{
 		if (!g->vehicle.horn_boost) return;
 		

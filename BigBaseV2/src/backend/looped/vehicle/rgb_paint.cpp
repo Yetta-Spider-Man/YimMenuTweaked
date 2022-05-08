@@ -3,7 +3,7 @@
 
 namespace big
 {
-	void looped::vehicle_rainbow_paint()
+	void backend_vehicle::rainbow_paint()
 	{
 		const Vehicle veh = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false);
 

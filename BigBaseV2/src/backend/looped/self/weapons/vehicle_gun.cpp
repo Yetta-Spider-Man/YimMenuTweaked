@@ -7,7 +7,7 @@ namespace big
 {
 	static const int controls[] = { 14, 15, 24 };
 
-	void looped::weapons_vehicle_gun()
+	void backend_self::weapons::vehicle_gun()
 	{
 		bool bVehicleGun = g->weapons.custom_weapon == CustomWeapon::VEHICLE_GUN;
 

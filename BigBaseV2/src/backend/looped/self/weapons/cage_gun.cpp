@@ -6,7 +6,7 @@ namespace big
 {
 	static const int controls[] = { 14, 15, 24 };
 
-	void looped::weapons_cage_gun()
+	void backend_self::weapons::cage_gun()
 	{
 		bool bCageGun = g->weapons.custom_weapon == CustomWeapon::CAGE_GUN;
 

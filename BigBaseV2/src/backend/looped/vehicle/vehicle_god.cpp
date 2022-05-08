@@ -4,7 +4,7 @@
 namespace big
 {
 	static bool last_veh_god = false;
-	void looped::vehicle_god_mode()
+	void backend_vehicle::godmode()
 	{
 		if ((!g->vehicle.god_mode && last_veh_god == g->vehicle.god_mode) || g_local_player == nullptr || g_local_player->m_vehicle == nullptr)
 			return;

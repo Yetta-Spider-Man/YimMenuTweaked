@@ -7,7 +7,7 @@ namespace big
 {
 	static const int controls[] = { 14, 15, 24 };
 
-	void looped::weapons_repair_gun()
+	void backend_self::weapons::repair_gun()
 	{
 		bool bRepairGun = g->weapons.custom_weapon == CustomWeapon::REPAIR_GUN;
 

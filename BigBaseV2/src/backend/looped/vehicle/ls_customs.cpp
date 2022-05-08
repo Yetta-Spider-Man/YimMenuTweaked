@@ -9,7 +9,7 @@ namespace big
 	static bool state = false;
 	static bool busy = false;
 
-	void looped::vehicle_ls_customs()
+	void backend_vehicle::ls_customs()
 	{
 		if (busy) return;
 		busy = true;

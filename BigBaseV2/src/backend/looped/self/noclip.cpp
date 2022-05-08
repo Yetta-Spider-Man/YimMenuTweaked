@@ -15,7 +15,8 @@ namespace big
 	static Entity prev = -1;
 	static Vector3 rot{};
 
-	void looped::self_noclip() {
+	void backend_self::noclip()
+	{
 		bool bNoclip = g->self.noclip;
 
 		Entity ent = PLAYER::PLAYER_PED_ID();

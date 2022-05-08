@@ -3,56 +3,81 @@
 
 namespace big
 {
-	class looped {
+	class backend_engine
+	{
 	public:
-		static void api_login_session();
-
+		static void system_update_pointers();
 		static void hud_transition_state();
+		static void system_local_time();
+		static void vehicle_despawn_bypass();
+	};
 
-		static void rgb_synced_fade();
-		static void rgb_synced_spasm();
-
-		static void tunables_disable_phone();
-		static void tunables_no_idle_kick();
-
+	class backend_network
+	{
+	public:
 		static void player_never_wanted();
 		static void player_spectate();
+	};
 
-		static void protections_replay_interface();
+	class backend_self
+	{
+	public:
+		static void free_cam();
+		static void godmode();
+		static void invisibility();
+		static void noclip();
+		static void off_radar();
+		static void police();
+		static void fast_run();
 
-		static void self_free_cam();
-		static void self_godmode();
-		static void self_invisibility();
-		static void self_noclip();
-		static void self_off_radar();
-		static void self_police();
-		static void self_fast_run();
+		class tunables
+		{
+		public:
+			static void disable_phone(); //This is stupid and useless
+			static void no_idle_kick(); //This should be protection
+		};
 
-		static void session_local_time();
-		
-		static void system_update_pointers();
+		class weapons
+		{
+		public:
+			static void force_crosshairs();
+			
+			static void ammo_special_type();
+			static void increased_damage();
 
-		static void vehicle_despawn_bypass();
-		static void vehicle_drive_on_water();
-		static void vehicle_god_mode();
-		static void vehicle_horn_boost();
-		static void vehicle_is_targetable();
-		static void vehicle_ls_customs();
-		static void vehicle_rainbow_paint();
-		static void vehicle_speedo_meter();
+			//Merge
+			static void infinite_ammo();
+			static void infinite_mag();
 
-		static void weapons_ammo_special_type();
-		static void weapons_cage_gun();
-		static void weapons_delete_gun();
-		static void weapons_force_crosshairs();
-		static void weapons_gravity_gun();
-		static void weapons_increased_damage();
-		static void weapons_infinite_ammo();
-		static void weapons_infinite_mag();
-		static void weapons_no_recoil();
-		static void weapons_no_spread();
-		static void weapons_repair_gun();
-		static void weapons_steal_vehicle_gun();
-		static void weapons_vehicle_gun();
+			//Merge
+			static void no_recoil();
+			static void no_spread();
+
+			static void repair_gun();
+			static void steal_vehicle_gun();
+			static void vehicle_gun();
+			static void cage_gun();
+			static void delete_gun();
+			static void gravity_gun();
+		};
+	};
+
+	class backend_vehicle
+	{
+	public:
+		class rgb
+		{
+		public:
+			static void synced_fade();
+			static void synced_spasm();
+		};
+	
+		static void drive_on_water(); //Remove (broken and garbage feature to begin with anyway)
+		static void godmode();
+		static void horn_boost(); //Replace
+		static void is_targetable(); //Remove
+		static void ls_customs();
+		static void rainbow_paint();
+		static void speedo_meter();
 	};
 }

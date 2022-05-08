@@ -401,19 +401,19 @@
     <ClCompile Include="src\backend\backend.cpp">
       <Filter>backend</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\hud\hud_transition_state.cpp">
+    <ClCompile Include="src\backend\looped\engine\hud_transition_state.cpp">
       <Filter>backend\looped\hud</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\player\player_never_wanted.cpp">
+    <ClCompile Include="src\backend\looped\network\player_never_wanted.cpp">
       <Filter>backend\looped\player</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\player\spectate.cpp">
+    <ClCompile Include="src\backend\looped\network\spectate.cpp">
       <Filter>backend\looped\player</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\rgb\synced_fade.cpp">
+    <ClCompile Include="src\backend\looped\vehicle\rgb\synced_fade.cpp">
       <Filter>backend\looped\rgb</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\rgb\synced_spam.cpp">
+    <ClCompile Include="src\backend\looped\vehicle\rgb\synced_spam.cpp">
       <Filter>backend\looped\rgb</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\self\free_cam.cpp">
@@ -437,19 +437,19 @@
     <ClCompile Include="src\backend\looped\self\fast_run.cpp">
       <Filter>backend\looped\self</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\session\local_time.cpp">
+    <ClCompile Include="src\backend\looped\engine\local_time.cpp">
       <Filter>backend\looped\session</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\system\update_pointers.cpp">
+    <ClCompile Include="src\backend\looped\engine\update_pointers.cpp">
       <Filter>backend\looped\system</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\tunables\disable_phone.cpp">
+    <ClCompile Include="src\backend\looped\self\tunables\disable_phone.cpp">
       <Filter>backend\looped\tunables</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\tunables\no_idle_kick.cpp">
+    <ClCompile Include="src\backend\looped\self\tunables\no_idle_kick.cpp">
       <Filter>backend\looped\tunables</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\vehicle\despawn_bypass.cpp">
+    <ClCompile Include="src\backend\looped\engine\despawn_bypass.cpp">
       <Filter>backend\looped\vehicle</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\vehicle\drive_on_water.cpp">
@@ -473,43 +473,43 @@
     <ClCompile Include="src\backend\looped\vehicle\vehicle_god.cpp">
       <Filter>backend\looped\vehicle</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\ammo_special_type.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\ammo_special_type.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\cage_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\cage_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\delete_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\delete_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\force_crosshairs.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\force_crosshairs.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\gravity_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\gravity_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\increase_damage.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\increase_damage.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\infinite_ammo.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\infinite_ammo.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\infinite_mag.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\infinite_mag.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\no_recoil.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\no_recoil.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\no_spread.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\no_spread.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\repair_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\repair_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\steal_vehicle_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\steal_vehicle_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\weapons\vehicle_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\vehicle_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
     <ClCompile Include="src\common.cpp" />

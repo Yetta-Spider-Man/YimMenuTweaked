@@ -3,7 +3,7 @@
 
 namespace big
 {
-	void looped::weapons_increased_damage()
+	void backend_self::weapons::increased_damage()
 	{
 		auto const player_ped = PLAYER::PLAYER_PED_ID();
 

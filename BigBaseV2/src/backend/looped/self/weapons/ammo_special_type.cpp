@@ -3,7 +3,7 @@
 namespace big
 {
 	static bool bLastState = false;
-	void looped::weapons_ammo_special_type()
+	void backend_self::weapons::ammo_special_type()
 	{
 		if (g_local_player == nullptr ||
 			g_local_player->m_weapon_manager == nullptr ||

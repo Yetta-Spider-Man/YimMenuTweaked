@@ -5,7 +5,7 @@ namespace big
 {
 	static bool lastOverride = true;
 
-	void looped::session_local_time()
+	void backend_engine::system_local_time()
 	{
 		if (lastOverride && !g->session.override_time)
 		{

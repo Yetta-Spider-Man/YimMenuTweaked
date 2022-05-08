@@ -6,7 +6,7 @@ namespace big
 {
 	static bool bLastGodMode = false;
 
-	void looped::self_godmode()
+	void backend_self::godmode()
 	{
 		Ped player = PLAYER::PLAYER_PED_ID();
 

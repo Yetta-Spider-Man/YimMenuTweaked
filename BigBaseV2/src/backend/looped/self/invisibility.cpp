@@ -5,7 +5,7 @@ namespace big
 {
 	static bool bLastInvisibility = false;
 
-	void looped::self_invisibility()
+	void backend_self::invisibility()
 	{
 		bool bInvisibility = g->self.invisibility;
 

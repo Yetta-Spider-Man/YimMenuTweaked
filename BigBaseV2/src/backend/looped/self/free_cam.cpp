@@ -13,7 +13,7 @@ namespace big
 	static Vector3 vecPosition;
 	static Vector3 vecRot;
 
-	void looped::self_free_cam()
+	void backend_self::free_cam()
 	{
 		if (g_local_player == nullptr) return;
 

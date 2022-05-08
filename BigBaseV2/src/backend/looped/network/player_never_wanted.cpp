@@ -4,7 +4,7 @@
 
 namespace big
 {
-	void looped::player_never_wanted()
+	void backend_network::player_never_wanted()
 	{
 		if (g->player.player_never_wanted && g_player_service->get_selected()->is_valid())
 		{

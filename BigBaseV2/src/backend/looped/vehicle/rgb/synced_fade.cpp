@@ -13,7 +13,7 @@ namespace big
         rgb_controller_blue_down,
     };
 
-    void looped::rgb_synced_fade()
+    void backend_vehicle::rgb::synced_fade()
     {
         if (g->rgb.fade)
         {

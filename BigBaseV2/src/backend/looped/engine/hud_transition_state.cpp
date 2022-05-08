@@ -5,7 +5,8 @@
 // Credits: QuickNET
 namespace big
 {
-	constexpr char transition_states[][48] = {
+	constexpr char transition_states[][48] = 
+	{
 		"TRANSITION_STATE_EMPTY",
 		"Singleplayer Swoop Up",
 		"Multiplayer Swoop Up",
@@ -79,7 +80,8 @@ namespace big
 
 	auto transition_state = script_global(1574988);
 	eTransitionState last_state = eTransitionState::TRANSITION_STATE_MAX;
-	void looped::hud_transition_state()
+
+	void backend_engine::hud_transition_state()
 	{
 		const auto state = *transition_state.as<eTransitionState*>();
 		if (last_state == eTransitionState::TRANSITION_STATE_MAX)
@@ -100,9 +102,7 @@ namespace big
 			return;
 
 		HUD::BEGIN_TEXT_COMMAND_BUSYSPINNER_ON("STRING");
-		HUD::ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(
-			fmt::format("Loading Online [{}]", transition_states[(int)state]).c_str()
-		);
+		HUD::ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(fmt::format("Loading Online [{}]", transition_states[(int)state]).c_str());
 		HUD::END_TEXT_COMMAND_BUSYSPINNER_ON(5);
 
 		last_state = state;

@@ -6,7 +6,7 @@ namespace big
 {
 	static bool bReset = true;
 
-	void looped::player_spectate()
+	void backend_network::player_spectate()
 	{
 		if (!g_player_service->get_selected()->is_valid() || !g->player.spectating)
 		{

@@ -3,7 +3,7 @@
 
 namespace big
 {
-	void looped::tunables_disable_phone()
+	void backend_self::tunables::disable_phone()
 	{
 		*script_global(19937).as<bool*>() = g->tunables.disable_phone;
 	}

@@ -29,7 +29,7 @@ namespace big
 			: get_og_spread_value(hash);
 	}
 
-	void looped::weapons_no_spread()
+	void backend_self::weapons::no_spread()
 	{
 		if (!g_local_player)
 		{

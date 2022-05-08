@@ -5,7 +5,7 @@
 
 namespace big
 {
-	void looped::vehicle_drive_on_water()
+	void backend_vehicle::drive_on_water()
 	{
 		if (g->vehicle.drive_on_water) {
 

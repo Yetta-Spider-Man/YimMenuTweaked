@@ -3,7 +3,7 @@
 
 namespace big
 {
-    void looped::rgb_synced_spasm()
+    void backend_vehicle::rgb::synced_spasm()
     {
         auto delay = std::chrono::milliseconds(1000 - (g->rgb.speed * 100));
 

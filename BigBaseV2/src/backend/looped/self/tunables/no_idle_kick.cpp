@@ -3,7 +3,7 @@
 
 namespace big
 {
-	void looped::tunables_no_idle_kick()
+	void backend_self::tunables::no_idle_kick()
 	{
 		if (g->tunables.no_idle_kick)
 		{

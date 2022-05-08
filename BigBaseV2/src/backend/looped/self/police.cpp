@@ -2,7 +2,7 @@
 
 namespace big
 {
-	void looped::self_police()
+	void backend_self::police()
 	{
 		if (g_local_player == nullptr || g_local_player->m_player_info == nullptr) return;
 
