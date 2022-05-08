@@ -133,7 +133,6 @@ namespace big
 			bool free_cam = false;
 			bool godmode = false;
 			bool invisibility = false;
-			bool local_visibility = true;
 			bool never_wanted = false;
 			bool noclip = false;
 			bool off_radar = false;
@@ -409,7 +408,6 @@ namespace big
 
 			this->self.godmode = j["self"]["godmode"];
 			this->self.invisibility = j["self"]["invisibility"];
-			this->self.local_visibility = j["self"]["local_visibility"];
 			this->self.never_wanted = j["self"]["never_wanted"];
 			this->self.off_radar = j["self"]["off_radar"];
 			this->self.fast_run = j["self"]["fast_run"];
@@ -594,7 +592,6 @@ namespace big
 					"self", {
 						{ "godmode", this->self.godmode },
 						{ "invisibility", this->self.invisibility },
-						{ "local_visibility", this->self.local_visibility },
 						{ "never_wanted", this->self.never_wanted },
 						{ "off_radar", this->self.off_radar },
 						{ "fast_run", this->self.fast_run }

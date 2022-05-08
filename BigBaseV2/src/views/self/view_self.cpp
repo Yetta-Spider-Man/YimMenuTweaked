@@ -14,8 +14,6 @@ namespace big
 		ImGui::Checkbox("Off radar", &g->self.off_radar);
 		ImGui::Checkbox("Fast run", &g->self.fast_run);
 		ImGui::Checkbox("Invisibility", &g->self.invisibility);
-		if (g->self.invisibility)
-			ImGui::Checkbox("Locally visible", &g->self.local_visibility);
 
 		ImGui::EndGroup();
 
