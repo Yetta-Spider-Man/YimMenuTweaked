@@ -12,7 +12,7 @@ namespace big
 		g->attempt_save();
 		looped::system_update_pointers();
 
-		if (g_local_player != nullptr && !api::util::signed_in())
+		if (g_local_player != nullptr/* && !api::util::signed_in()*/)
 		{
 			g_thread_pool->push([]
 			{

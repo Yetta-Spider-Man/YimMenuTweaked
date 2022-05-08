@@ -3,20 +3,22 @@
 
 namespace big::api
 {
-	const std::string domain = "http://home.damon.sh:8089/api/v1";
-	//const std::string domain = "http://localhost:8080/api/v1";
+	const std::string domain = "";
+	//const std::string domain = "";
 	inline std::string session_id;
 
 	namespace util
 	{
 		static std::string authorization_header()
 		{
-			return std::string("Authorization: ") + api::session_id;
+			/*return std::string("Authorization: ") + api::session_id;*/
+
+			return false;
 		}
 
 		static bool parse_body(http::Response& res, nlohmann::json& out)
 		{
-			try
+			/*try
 			{
 				out = nlohmann::json::parse(res.body.begin(), res.body.end());
 
@@ -29,12 +31,16 @@ namespace big::api
 				LOG(INFO) << "Failed to parse request body: " << std::endl << e.what();
 
 				return false;
-			}
+			}*/
+
+			return false;
 		}
 
 		static bool signed_in()
 		{
-			return !session_id.empty();
+			/*return !session_id.empty();*/
+
+			return false;
 		}
 	}
 
@@ -42,7 +48,7 @@ namespace big::api
 	{
 		static bool create_session()
 		{
-			static std::atomic_bool busy = false;
+			/*static std::atomic_bool busy = false;
 			if (busy || g_local_player == nullptr) return false;
 			busy = true;
 
@@ -86,6 +92,8 @@ namespace big::api
 			LOG(INFO) << "Failed to create a session.";
 
 			busy = false;
+			return false;*/
+
 			return false;
 		}
 	}
@@ -96,7 +104,7 @@ namespace big::api
 		{
 			static bool create_profile(uint32_t handling_hash, const char* name, const char* description, nlohmann::json& handling_data, nlohmann::json& out)
 			{
-				if (!util::signed_in()) return false;
+				/*if (!util::signed_in()) return false;
 
 				const std::string path = "/vehicle/handling/create";
 
@@ -110,12 +118,14 @@ namespace big::api
 				http::Response res = request.send("POST", out.dump(), {
 					util::authorization_header()
 				});
-				return util::parse_body(res, out);
+				return util::parse_body(res, out);*/
+
+				return false;
 			}
 
 			static bool get_by_share_code(std::string share_code, nlohmann::json& out)
 			{
-				if (!util::signed_in()) return false;
+				/*if (!util::signed_in()) return false;
 
 				const std::string path = "/vehicle/handling/get_by_share_code?share_code=";
 
@@ -125,12 +135,14 @@ namespace big::api
 					util::authorization_header()
 				});
 
-				return util::parse_body(res, out);
+				return util::parse_body(res, out);*/
+
+				return false;
 			}
 
 			static bool get_my_handling(uint32_t handling_hash, nlohmann::json &out)
 			{
-				if (!util::signed_in()) return false;
+				/*if (!util::signed_in()) return false;
 
 				const std::string path = "/vehicle/handling/get_mine?handling_hash=";
 
@@ -140,12 +152,14 @@ namespace big::api
 					util::authorization_header()
 				});
 
-				return util::parse_body(res, out);
+				return util::parse_body(res, out);*/
+
+				return false;
 			}
 
 			static bool get_saved_handling(uint32_t handling_hash, nlohmann::json& out)
 			{
-				if (!util::signed_in()) return false;
+				/*if (!util::signed_in()) return false;
 
 				const std::string path = "/vehicle/handling/get_saved?handling_hash=";
 
@@ -155,12 +169,14 @@ namespace big::api
 					util::authorization_header()
 				});
 
-				return util::parse_body(res, out);
+				return util::parse_body(res, out);*/
+
+				return false;
 			}
 
 			static bool save_profile(std::string share_code)
 			{
-				if (!util::signed_in()) return false;
+				/*if (!util::signed_in()) return false;
 
 				const std::string path = "/vehicle/handling/save_profile";
 
@@ -171,12 +187,14 @@ namespace big::api
 				http::Response res = request.send("POST", body.dump(), {
 					util::authorization_header()
 				});
-				return util::parse_body(res, body);
+				return util::parse_body(res, body);*/
+
+				return false;
 			}
 
 			static bool update(uint32_t handling_hash, const char* name, const char* description, std::string share_code, nlohmann::json &update)
 			{
-				if (!util::signed_in()) return false;
+				/*if (!util::signed_in()) return false;
 
 				const std::string path = "/vehicle/handling/update";
 
@@ -192,7 +210,9 @@ namespace big::api
 				http::Response res = request.send("POST", json.dump(), {
 					util::authorization_header()
 				});
-				return util::parse_body(res, update);
+				return util::parse_body(res, update);*/
+
+				return false;
 			}
 		}
 	}
