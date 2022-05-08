@@ -27,6 +27,10 @@ namespace big
 			this->add_native_detour(RAGE_JOAAT("carmod_shop"), 0x34E710FF01247C5A, carmod_shop::SET_VEHICLE_LIGHTS);
 			this->add_native_detour(RAGE_JOAAT("carmod_shop"), 0x767FBC2AC802EF3D, carmod_shop::STAT_GET_INT);
 			this->add_native_detour(RAGE_JOAAT("freemode"), 0x95914459A87EBA28, freemode::NETWORK_BAIL);
+			this->add_native_detour(RAGE_JOAAT("freemode"), 0x580CE4438479CC61, freemode::NETWORK_CAN_BAIL); //Testing
+
+			//https://github.com/Yimura/YimMenu/discussions/143
+			this->add_native_detour(RAGE_JOAAT("freemode"), 0x5D10B3795F3FC886, freemode::NETWORK_HAS_RECEIVED_HOST_BROADCAST_DATA);
 
 			for (auto native_detours_for_script : m_native_registrations)
 				if (GtaThread* thread = gta_util::find_script_thread(native_detours_for_script.first); thread != nullptr && thread->m_context.m_state == rage::eThreadState::running)
