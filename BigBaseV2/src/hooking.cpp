@@ -17,51 +17,35 @@
 namespace big
 {
 	hooking::hooking() :
-		// Swapchain
-		m_swapchain_hook(*g_pointers->m_swapchain, hooks::swapchain_num_funcs),
-		// SetCursorPos
-		m_set_cursor_pos_hook("SCP", memory::module("user32.dll").get_export("SetCursorPos").as<void*>(), &hooks::set_cursor_pos),
 
-		// Script Hook
-		m_run_script_threads_hook("SH", g_pointers->m_run_script_threads, &hooks::run_script_threads),
-		// ConvertThreadToFibe
-		m_convert_thread_to_fiber_hook("CTTF", memory::module("kernel32.dll").get_export("ConvertThreadToFiber").as<void*>(), &hooks::convert_thread_to_fiber),
+		m_swapchain_hook(*g_pointers->m_swapchain, hooks::swapchain_num_funcs), // Swapchain
 
-		// GTA Thead Start
-		m_gta_thread_start_hook("GTS", g_pointers->m_gta_thread_start, &hooks::gta_thread_start),
-		// GTA Thread Tick
-		m_gta_thread_tick_hook("GTT", g_pointers->m_gta_thread_tick, &hooks::gta_thread_tick),
-		// GTA Thread Kill
-		m_gta_thread_kill_hook("GTK", g_pointers->m_gta_thread_kill, &hooks::gta_thread_kill),
+		m_set_cursor_pos_hook("SetCursorPos", memory::module("user32.dll").get_export("SetCursorPos").as<void*>(), &hooks::set_cursor_pos),
 
-		// Network Player Mgr Shutdown
-		m_network_player_mgr_shutdown_hook("NPMS", g_pointers->m_network_player_mgr_shutdown, &hooks::network_player_mgr_shutdown),
+		m_run_script_threads_hook("Script Hook", g_pointers->m_run_script_threads, &hooks::run_script_threads),
 
-		m_net_array_handler_hook("net_array_handler", g_pointers->m_net_array_handler, &hooks::net_array_handler),
+		m_convert_thread_to_fiber_hook("ConvertThreadToFibe", memory::module("kernel32.dll").get_export("ConvertThreadToFiber").as<void*>(), &hooks::convert_thread_to_fiber),
 
-		// Increment Stat Event
-		m_increment_stat_hook("ISE", g_pointers->m_increment_stat_event, &hooks::increment_stat_event),
-		// Is DLC Present
-		m_is_dlc_present_hook("IDP", g_pointers->m_is_dlc_present, &hooks::is_dlc_present),
+		m_gta_thread_start_hook("GTA Thead Start", g_pointers->m_gta_thread_start, &hooks::gta_thread_start),
+		m_gta_thread_tick_hook("GTA Thread Tick", g_pointers->m_gta_thread_tick, &hooks::gta_thread_tick),
+		m_gta_thread_kill_hook("GTA Thread Kill", g_pointers->m_gta_thread_kill, &hooks::gta_thread_kill),
 
-		// Error Screen
-		m_error_screen_hook("ES", g_pointers->m_error_screen, &hooks::set_warning_message_with_header),
+		m_net_array_handler_hook("Net Array Handler", g_pointers->m_net_array_handler, &hooks::net_array_handler),
 
-		// Received Event
-		m_received_event_hook("RE", g_pointers->m_received_event, &hooks::received_event),
+		m_increment_stat_hook("Increment Stat Event", g_pointers->m_increment_stat_event, &hooks::increment_stat_event),
+		m_is_dlc_present_hook("Is DLC Present", g_pointers->m_is_dlc_present, &hooks::is_dlc_present),
+		m_error_screen_hook("Error Screen", g_pointers->m_error_screen, &hooks::set_warning_message_with_header),
 
-		// Send NET Info to Lobby
-		m_send_net_info_to_lobby("SNITL", g_pointers->m_send_net_info_to_lobby, &hooks::send_net_info_to_lobby),
+		m_received_event_hook("Received Event", g_pointers->m_received_event, &hooks::received_event),
 
-		// Player Has Joined
-		m_player_has_joined_hook("PHJ", g_pointers->m_player_has_joined, &hooks::player_join),
-		// Player Has Left
-		m_player_has_left_hook("PHL", g_pointers->m_player_has_left, &hooks::player_leave),
+		m_network_player_mgr_shutdown_hook("Network Player Mgr Shutdown", g_pointers->m_network_player_mgr_shutdown, &hooks::network_player_mgr_shutdown),
 
-		// Chat receive
-		m_chat_receive_hook("CR", g_pointers->m_chat_receive, &hooks::chat_receive),
-		// Chat censor
-		m_censor_chat_text_hook("CS", g_pointers->m_censor_chat_text, &hooks::censor_chat_text)
+		m_send_net_info_to_lobby("Send NET Info to Lobby", g_pointers->m_send_net_info_to_lobby, &hooks::send_net_info_to_lobby),
+		m_player_has_joined_hook("Player Has Joined", g_pointers->m_player_has_joined, &hooks::player_join),
+		m_player_has_left_hook("Player Has Left", g_pointers->m_player_has_left, &hooks::player_leave),
+
+		m_chat_receive_hook("Chat Receive", g_pointers->m_chat_receive, &hooks::chat_receive),
+		m_censor_chat_text_hook("Chat Censor", g_pointers->m_censor_chat_text, &hooks::censor_chat_text)
 	{
 		m_swapchain_hook.hook(hooks::swapchain_present_index, &hooks::swapchain_present);
 		m_swapchain_hook.hook(hooks::swapchain_resizebuffers_index, &hooks::swapchain_resizebuffers);
