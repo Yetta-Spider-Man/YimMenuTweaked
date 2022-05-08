@@ -260,6 +260,7 @@
     <ClInclude Include="src\util\animator.hpp" />
     <ClInclude Include="src\util\blip.hpp" />
     <ClInclude Include="src\util\entity.hpp" />
+    <ClInclude Include="src\util\find.hpp" />
     <ClInclude Include="src\util\globals.hpp" />
     <ClInclude Include="src\util\math.hpp" />
     <ClInclude Include="src\util\misc.hpp" />

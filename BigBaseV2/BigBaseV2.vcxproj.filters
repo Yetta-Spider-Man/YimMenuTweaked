@@ -395,6 +395,7 @@
     <ClInclude Include="src\widgets\imgui_hotkey.hpp">
       <Filter>widgets</Filter>
     </ClInclude>
+    <ClInclude Include="src\util\find.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\backend\backend.cpp">
