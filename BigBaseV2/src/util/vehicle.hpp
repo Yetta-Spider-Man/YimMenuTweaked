@@ -9,6 +9,14 @@
 
 namespace big::vehicle
 {
+	inline bool owns_vehicle()
+	{
+		Ped ped = PLAYER::PLAYER_PED_ID();
+		Vehicle vehicle = PED::GET_VEHICLE_PED_IS_USING(ped);
+
+		return PED::IS_PED_IN_ANY_VEHICLE(ped, FALSE) && NETWORK::NETWORK_HAS_CONTROL_OF_ENTITY(vehicle);
+	}
+
 	inline void bring(Vehicle veh, Vector3 location, bool put_in = true)
 	{
 		Vector3 vecVehicleLocation = ENTITY::GET_ENTITY_COORDS(veh, true);

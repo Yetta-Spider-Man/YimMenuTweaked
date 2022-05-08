@@ -285,6 +285,7 @@
     <ClCompile Include="src\backend\looped\engine\hud_transition_state.cpp" />
     <ClCompile Include="src\backend\looped\network\player_never_wanted.cpp" />
     <ClCompile Include="src\backend\looped\network\spectate.cpp" />
+    <ClCompile Include="src\backend\looped\vehicle\auto_repair.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\rgb\synced_fade.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\rgb\synced_spam.cpp" />
     <ClCompile Include="src\backend\looped\self\free_cam.cpp" />
@@ -408,7 +409,7 @@
     <ClCompile Include="src\views\network\view_protection.cpp" />
     <ClCompile Include="src\views\settings\view_hotkeys.cpp" />
     <ClCompile Include="src\views\vehicle\view_spawn.cpp" />
-    <ClCompile Include="src\views\vehicle\view_vehicle.cpp" />
+    <ClCompile Include="src\views\vehicle\view_vehicle_options.cpp" />
     <ClCompile Include="src\vmt_hook.cpp" />
   </ItemGroup>
   <ItemGroup>

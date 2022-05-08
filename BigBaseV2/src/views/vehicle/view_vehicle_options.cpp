@@ -11,17 +11,11 @@ namespace big
 		ImGui::BeginGroup();
 		ImGui::Checkbox("Godmode", &g->vehicle.god_mode);
 		ImGui::Checkbox("Horn boost", &g->vehicle.horn_boost);
+		ImGui::Checkbox("Auto repair", &g->vehicle.auto_repair);
 
 		ImGui::EndGroup();
 		ImGui::SameLine();
 		ImGui::BeginGroup();
-
-		components::button("Repair", [] 
-		{
-			Vehicle veh = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false);
-
-			vehicle::repair(veh);
-		});
         
 		if (ImGui::TreeNode("Paint"))
 		{

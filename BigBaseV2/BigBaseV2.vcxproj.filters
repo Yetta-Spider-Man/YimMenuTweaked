@@ -729,7 +729,7 @@
     <ClCompile Include="src\views\vehicle\view_spawn.cpp">
       <Filter>views\vehicle</Filter>
     </ClCompile>
-    <ClCompile Include="src\views\vehicle\view_vehicle.cpp">
+    <ClCompile Include="src\views\vehicle\view_vehicle_options.cpp">
       <Filter>views\vehicle</Filter>
     </ClCompile>
     <ClCompile Include="src\vmt_hook.cpp" />
@@ -738,6 +738,7 @@
     </ClCompile>
     <ClCompile Include="src\hooks\censor_chat_text.cpp" />
     <ClCompile Include="src\views\self\view_weather.cpp" />
+    <ClCompile Include="src\backend\looped\vehicle\auto_repair.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Masm Include="src\invoker_asm.asm" />

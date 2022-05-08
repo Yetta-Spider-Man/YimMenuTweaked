@@ -93,6 +93,7 @@ namespace big
 			backend_vehicle::horn_boost();
 			backend_vehicle::rainbow_paint();
 			backend_vehicle::speedo_meter();
+			backend_vehicle::auto_repair();
 
 		}QUEUE_JOB_END_CLAUSE
 

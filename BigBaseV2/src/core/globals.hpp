@@ -9,15 +9,18 @@ namespace big
 	class menu_settings;
 	inline menu_settings* g{};
 
-	class menu_settings {
+	class menu_settings 
+	{
 		nlohmann::json default_options;
 		nlohmann::json options;
 
-		struct debug {
+		struct debug 
+		{
 			bool script_event_logging = false;
 		};
 
-		struct tunables {
+		struct tunables 
+		{
 			bool no_idle_kick = false;
 		};
 
@@ -82,15 +85,18 @@ namespace big
 			pair transaction_rate_limit{};
 		};
 
-		struct player {
+		struct player 
+		{
 			int character_slot = 1;
 			bool player_never_wanted = false;
 			int set_level = 130;
 			bool spectating = false;
 		};
 
-		struct protections {
-			struct script_events {
+		struct protections 
+		{
+			struct script_events 
+			{
 				bool bounty = true;
 				bool ceo_ban = true;
 				bool ceo_kick = true;
@@ -118,7 +124,8 @@ namespace big
 			script_events script_events{};
 		};
 
-		struct rgb {
+		struct rgb 
+		{
 			bool fade = false;
 			bool spasm = false;
 			int r = 255;
@@ -149,7 +156,8 @@ namespace big
 			} custom_time;
 		};
 
-		struct settings {
+		struct settings 
+		{
 			struct hotkeys
 			{
 				bool editing_menu_toggle = false;
@@ -181,8 +189,10 @@ namespace big
 			bool spoof_chat_censor = false;
 		};
 
-		struct vehicle {
-			struct speedo_meter {
+		struct vehicle 
+		{
+			struct speedo_meter 
+			{
 				SpeedoMeter type = SpeedoMeter::DISABLED;
 
 				float x = .9f;
@@ -191,6 +201,7 @@ namespace big
 				bool left_side = false;
 			};
 
+			bool auto_repair = false;
 			bool god_mode = false;
 			bool horn_boost = false;
 			bool ls_customs = false; // don't save this to disk
@@ -199,7 +210,8 @@ namespace big
 			speedo_meter speedo_meter{};
 		};
 
-		struct weapons {
+		struct weapons 
+		{
 			struct ammo_special
 			{
 				bool toggle = false;
@@ -420,6 +432,7 @@ namespace big
 			this->spoofing.rockstar_id = j["spoofing"]["rockstar_id"];
 			this->spoofing.username = j["spoofing"]["username"];
 
+			this->vehicle.auto_repair = j["vehicle"]["auto_repair"];
 			this->vehicle.god_mode = j["vehicle"]["god_mode"];
 			this->vehicle.horn_boost = j["vehicle"]["horn_boost"];
 			this->vehicle.pv_teleport_into = j["vehicle"]["pv_teleport_into"];
@@ -616,6 +629,7 @@ namespace big
 				},
 				{
 					"vehicle", {
+						{ "auto_repair", this->vehicle.auto_repair },
 						{ "god_mode", this->vehicle.god_mode },
 						{ "horn_boost", this->vehicle.horn_boost },
 						{ "pv_teleport_into", this->vehicle.pv_teleport_into },

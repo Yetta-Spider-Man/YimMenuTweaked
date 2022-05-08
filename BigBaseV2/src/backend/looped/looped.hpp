@@ -69,5 +69,6 @@ namespace big
 		static void ls_customs();
 		static void rainbow_paint();
 		static void speedo_meter();
+		static void auto_repair();
 	};
 }
