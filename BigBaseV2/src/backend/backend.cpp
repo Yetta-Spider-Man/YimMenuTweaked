@@ -39,11 +39,9 @@ namespace big
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
-			looped::self_clean_player();
 			looped::self_free_cam();
 			looped::self_godmode();
 			looped::self_invisibility();
-			looped::self_no_ragdoll();
 			looped::self_off_radar();
 			looped::self_police();
 			looped::self_super_run();

@@ -129,14 +129,12 @@ namespace big
 		};
 
 		struct self {
-			bool clean_player = false;
 			bool force_wanted_level = false;
 			bool free_cam = false;
 			bool godmode = false;
 			bool invisibility = false;
 			bool local_visibility = true;
 			bool never_wanted = false;
-			bool no_ragdoll = false;
 			bool noclip = false;
 			bool off_radar = false;
 			bool super_run = false;
@@ -409,12 +407,10 @@ namespace big
 			this->tunables.disable_phone = j["tunables"]["disable_phone"];
 			this->tunables.no_idle_kick = j["tunables"]["no_idle_kick"];
 
-			this->self.clean_player = j["self"]["clean_player"];
 			this->self.godmode = j["self"]["godmode"];
 			this->self.invisibility = j["self"]["invisibility"];
 			this->self.local_visibility = j["self"]["local_visibility"];
 			this->self.never_wanted = j["self"]["never_wanted"];
-			this->self.no_ragdoll = j["self"]["no_ragdoll"];
 			this->self.off_radar = j["self"]["off_radar"];
 			this->self.super_run = j["self"]["super_run"];
 
@@ -596,12 +592,10 @@ namespace big
 				},
 				{
 					"self", {
-						{ "clean_player", this->self.clean_player },
 						{ "godmode", this->self.godmode },
 						{ "invisibility", this->self.invisibility },
 						{ "local_visibility", this->self.local_visibility },
 						{ "never_wanted", this->self.never_wanted },
-						{ "no_ragdoll", this->self.no_ragdoll },
 						{ "off_radar", this->self.off_radar },
 						{ "super_run", this->self.super_run }
 					}

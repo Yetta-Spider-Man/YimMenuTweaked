@@ -287,11 +287,9 @@
     <ClCompile Include="src\backend\looped\player\spectate.cpp" />
     <ClCompile Include="src\backend\looped\rgb\synced_fade.cpp" />
     <ClCompile Include="src\backend\looped\rgb\synced_spam.cpp" />
-    <ClCompile Include="src\backend\looped\self\clean_player.cpp" />
     <ClCompile Include="src\backend\looped\self\free_cam.cpp" />
     <ClCompile Include="src\backend\looped\self\godmode.cpp" />
     <ClCompile Include="src\backend\looped\self\invisibility.cpp" />
-    <ClCompile Include="src\backend\looped\self\no_ragdoll.cpp" />
     <ClCompile Include="src\backend\looped\self\noclip.cpp" />
     <ClCompile Include="src\backend\looped\self\off_radar.cpp" />
     <ClCompile Include="src\backend\looped\self\police.cpp" />

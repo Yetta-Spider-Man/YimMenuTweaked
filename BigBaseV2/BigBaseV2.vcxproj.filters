@@ -418,9 +418,6 @@
     <ClCompile Include="src\backend\looped\rgb\synced_spam.cpp">
       <Filter>backend\looped\rgb</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\clean_player.cpp">
-      <Filter>backend\looped\self</Filter>
-    </ClCompile>
     <ClCompile Include="src\backend\looped\self\free_cam.cpp">
       <Filter>backend\looped\self</Filter>
     </ClCompile>
@@ -428,9 +425,6 @@
       <Filter>backend\looped\self</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\self\invisibility.cpp">
-      <Filter>backend\looped\self</Filter>
-    </ClCompile>
-    <ClCompile Include="src\backend\looped\self\no_ragdoll.cpp">
       <Filter>backend\looped\self</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\self\noclip.cpp">

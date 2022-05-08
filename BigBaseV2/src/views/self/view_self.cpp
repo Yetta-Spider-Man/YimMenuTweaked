@@ -20,7 +20,6 @@ namespace big
 		ImGui::BeginGroup();
 
 		ImGui::Checkbox("Noclip", &g->self.noclip);
-		ImGui::Checkbox("No ragdoll", &g->self.no_ragdoll);
 		ImGui::Checkbox("Super run", &g->self.super_run);
 		ImGui::Checkbox("No idle kick", &g->tunables.no_idle_kick); //Should be protection
 
@@ -31,8 +30,6 @@ namespace big
 		ImGui::Checkbox("Invisibility", &g->self.invisibility);
 		if (g->self.invisibility)
 			ImGui::Checkbox("Locally visible", &g->self.local_visibility);
-
-		ImGui::Checkbox("Always clean player", &g->self.clean_player);
 
 		ImGui::EndGroup();
 
