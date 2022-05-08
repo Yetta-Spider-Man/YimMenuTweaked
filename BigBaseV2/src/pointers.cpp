@@ -267,6 +267,11 @@ namespace big
 			m_censor_chat_text = ptr.add(1).rip().as<PVOID>();
 		});
 
+		main_batch.add("AB", "89 05 ? ? ? ? 48 8D 05 ? ? ? ? 48 6B DB 38 48 03 D8", [this](memory::handle ptr)
+		{
+			m_anticheat_bypass = ptr.add(2).rip().add(0x14).as<std::uint16_t*>();
+		});
+
 		main_batch.run(memory::module(nullptr));
 
 		m_hwnd = FindWindowW(L"grcWindow", nullptr);

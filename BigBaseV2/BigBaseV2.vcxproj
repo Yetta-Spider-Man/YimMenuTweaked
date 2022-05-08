@@ -282,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\backend\backend.cpp" />
+    <ClCompile Include="src\backend\looped\engine\anticheat_bypass.cpp" />
     <ClCompile Include="src\backend\looped\engine\hud_transition_state.cpp" />
     <ClCompile Include="src\backend\looped\network\player_never_wanted.cpp" />
     <ClCompile Include="src\backend\looped\network\spectate.cpp" />

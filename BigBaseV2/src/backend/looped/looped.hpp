@@ -6,6 +6,7 @@ namespace big
 	class backend_engine
 	{
 	public:
+		static void anticheat_bypass();
 		static void system_update_pointers();
 		static void hud_transition_state();
 		static void system_local_time();

@@ -24,6 +24,12 @@ namespace big
 
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
+			backend_engine::anticheat_bypass();
+
+		}QUEUE_JOB_END_CLAUSE
+
+		QUEUE_JOB_BEGIN_CLAUSE()
+		{
 			backend_engine::hud_transition_state();
 
 		}QUEUE_JOB_END_CLAUSE

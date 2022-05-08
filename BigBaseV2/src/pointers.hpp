@@ -85,6 +85,8 @@ namespace big
 
 		PVOID m_chat_receive{};
 		PVOID m_censor_chat_text{};
+
+		std::uint16_t* m_anticheat_bypass{};
 	};
 
 	inline pointers *g_pointers{};

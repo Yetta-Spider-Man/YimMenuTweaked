@@ -739,6 +739,7 @@
     <ClCompile Include="src\hooks\censor_chat_text.cpp" />
     <ClCompile Include="src\views\self\view_weather.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\auto_repair.cpp" />
+    <ClCompile Include="src\backend\looped\engine\anticheat_bypass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Masm Include="src\invoker_asm.asm" />
