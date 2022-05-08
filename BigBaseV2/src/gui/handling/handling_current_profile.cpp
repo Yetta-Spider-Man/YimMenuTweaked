@@ -12,7 +12,7 @@ namespace big
 			return;
 		}
 
-		if (g_vehicle_service->get_active_profile(g_local_player->m_vehicle->m_handling->m_model_hash).empty())
+		/*if (g_vehicle_service->get_active_profile(g_local_player->m_vehicle->m_handling->m_model_hash).empty())
 		{
 			if (ImGui::Button("Save Profile"))
 			{
@@ -25,11 +25,11 @@ namespace big
 			{
 				ImGui::OpenPopup("Update Handling");
 			}
-		}
+		}*/
 
 		modal_handling::modal_save_handling();
 		modal_handling::modal_update_handling();
-		ImGui::SameLine();
+
 		if (ImGui::Button("Restore Handling"))
 			g_vehicle_service->restore_vehicle();
 
