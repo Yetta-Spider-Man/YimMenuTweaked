@@ -67,14 +67,10 @@ namespace big
 							const Vehicle veh = vehicle::spawn(item["Name"], location, 0.f);
 
 							if (g->spawn.spawn_inside)
-							{
 								vehicle::telport_into_veh(veh);
-							}
 
 							if (g->spawn.spawn_maxed)
-							{
 								vehicle::max_vehicle(veh);
-							}
 
 							g_vehicle_preview_service->stop_preview();
 						});

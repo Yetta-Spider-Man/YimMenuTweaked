@@ -5,6 +5,7 @@
 
 namespace big
 {
+	//Todo: make this look pretty
 	void view::weather()
 	{
 		ImGui::Checkbox("Override time", &g->session.override_time);

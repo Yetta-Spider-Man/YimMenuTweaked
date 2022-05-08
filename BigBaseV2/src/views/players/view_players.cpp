@@ -9,6 +9,7 @@ namespace big
 
 		ImGui::SetNextWindowSize({ 250.f, 0.f });
 		ImGui::SetNextWindowPos({ 10.f, window_pos });
+
 		if (ImGui::Begin("playerlist", nullptr, window_flags))
 		{
 			const auto player_count = g_player_service->m_players.size();
@@ -18,22 +19,25 @@ namespace big
 
 			ImGui::PushStyleColor(ImGuiCol_FrameBg, { 0.f, 0.f, 0.f, 0.f });
 			ImGui::PushStyleColor(ImGuiCol_ScrollbarBg, { 0.f, 0.f, 0.f, 0.f });
-			if (ImGui::BeginListBox("##players", { 250.f - ImGui::GetStyle().WindowPadding.x * 2 , window_height })) {
+			if (ImGui::BeginListBox("##players", { 250.f - ImGui::GetStyle().WindowPadding.x * 2 , window_height })) 
+			{
 				for (auto& item : g_player_service->m_players)
 				{
 					const auto& plyr = item.second;
+
 					if (plyr->is_host())
 						ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.29f, 0.45f, 0.69f, 1.f));
+
 					if (ImGui::Button(plyr->get_name(), { ImGui::GetWindowSize().x - 15.f, 0.f }))
 					{
 						g_player_service->set_selected(plyr.get());
 						g_gui_service->set_selected(tabs::PLAYER);
 						g->window.switched_view = true;
 					}
+
 					if (plyr->is_host())
 						ImGui::PopStyleColor();
 				}
-
 				ImGui::EndListBox();
 			}
 			ImGui::PopStyleColor(2);

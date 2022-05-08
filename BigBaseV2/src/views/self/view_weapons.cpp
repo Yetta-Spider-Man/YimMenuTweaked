@@ -57,6 +57,7 @@ namespace big
 				{
 					WEAPON::GIVE_DELAYED_WEAPON_TO_PED(PLAYER::PLAYER_PED_ID(), weapon, 9999, false);
 				}
+
 				WEAPON::GIVE_DELAYED_WEAPON_TO_PED(PLAYER::PLAYER_PED_ID(), -72657034, 0, true);
 			}
 			QUEUE_JOB_END_CLAUSE

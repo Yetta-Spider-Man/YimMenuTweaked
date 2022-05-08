@@ -70,10 +70,10 @@ namespace big
 
 					script::get_current()->yield();
 				}
+
 				if (!STREAMING::HAS_MODEL_LOADED(hash))
 				{
-					g_notification_service->push_error("Self", "Failed to spawn model, did you give an incorrect model ? ");
-
+					g_notification_service->push_error("Self", "Failed to spawn model, did you give an incorrect model?");
 					return;
 				}
 
@@ -85,6 +85,7 @@ namespace big
 		});
 
 		ImGui::Separator();
+
 		components::small_text("Misc");
 
 		components::button("Suicide", []

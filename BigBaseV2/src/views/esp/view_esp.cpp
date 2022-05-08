@@ -17,7 +17,8 @@ namespace big
 
 	void esp::draw() 
 	{
-		if (!g->esp.enabled) return;
+		if (!g->esp.enabled) 
+			return;
 
 		static ImColor death_bg = ImColor(0.117f, 0.113f, 0.172f, .75f);
 		static ImColor health_green_bg = ImColor(0.29f, 0.69f, 0.34f, 0.5f);
