@@ -137,7 +137,7 @@ namespace big
 			bool never_wanted = false;
 			bool noclip = false;
 			bool off_radar = false;
-			bool super_run = false;
+			bool fast_run = false;
 			int wanted_level = 0;
 		};
 
@@ -412,7 +412,7 @@ namespace big
 			this->self.local_visibility = j["self"]["local_visibility"];
 			this->self.never_wanted = j["self"]["never_wanted"];
 			this->self.off_radar = j["self"]["off_radar"];
-			this->self.super_run = j["self"]["super_run"];
+			this->self.fast_run = j["self"]["fast_run"];
 
 			this->settings.hotkeys.menu_toggle = j["settings"]["hotkeys"]["menu_toggle"];
 
@@ -597,7 +597,7 @@ namespace big
 						{ "local_visibility", this->self.local_visibility },
 						{ "never_wanted", this->self.never_wanted },
 						{ "off_radar", this->self.off_radar },
-						{ "super_run", this->self.super_run }
+						{ "fast_run", this->self.fast_run }
 					}
 				},
 				{

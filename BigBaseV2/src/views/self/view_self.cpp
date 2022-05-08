@@ -20,7 +20,7 @@ namespace big
 		ImGui::BeginGroup();
 
 		ImGui::Checkbox("Noclip", &g->self.noclip);
-		ImGui::Checkbox("Super run", &g->self.super_run);
+		ImGui::Checkbox("Fast run", &g->self.fast_run);
 		ImGui::Checkbox("No idle kick", &g->tunables.no_idle_kick); //Should be protection
 
 		ImGui::EndGroup();

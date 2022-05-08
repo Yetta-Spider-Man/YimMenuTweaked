@@ -436,7 +436,7 @@
     <ClCompile Include="src\backend\looped\self\police.cpp">
       <Filter>backend\looped\self</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\super_run.cpp">
+    <ClCompile Include="src\backend\looped\self\fast_run.cpp">
       <Filter>backend\looped\self</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\session\local_time.cpp">

@@ -26,7 +26,7 @@ namespace big
 		static void self_noclip();
 		static void self_off_radar();
 		static void self_police();
-		static void self_super_run();
+		static void self_fast_run();
 
 		static void session_local_time();
 		

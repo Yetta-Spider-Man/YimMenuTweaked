@@ -44,7 +44,7 @@ namespace big
 			looped::self_invisibility();
 			looped::self_off_radar();
 			looped::self_police();
-			looped::self_super_run();
+			looped::self_fast_run();
 		}QUEUE_JOB_END_CLAUSE
 
 		QUEUE_JOB_BEGIN_CLAUSE()

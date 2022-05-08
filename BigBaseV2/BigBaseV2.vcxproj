@@ -293,7 +293,7 @@
     <ClCompile Include="src\backend\looped\self\noclip.cpp" />
     <ClCompile Include="src\backend\looped\self\off_radar.cpp" />
     <ClCompile Include="src\backend\looped\self\police.cpp" />
-    <ClCompile Include="src\backend\looped\self\super_run.cpp" />
+    <ClCompile Include="src\backend\looped\self\fast_run.cpp" />
     <ClCompile Include="src\backend\looped\session\local_time.cpp" />
     <ClCompile Include="src\backend\looped\system\update_pointers.cpp" />
     <ClCompile Include="src\backend\looped\tunables\disable_phone.cpp" />
