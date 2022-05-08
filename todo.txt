@@ -1,0 +1,4 @@
+todo:
+
+organize view categories into classes
+organize front end includes
