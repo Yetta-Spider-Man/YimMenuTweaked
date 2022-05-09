@@ -5,6 +5,6 @@ namespace big
 {
 	void backend_engine::anticheat_bypass()
 	{
-		*g_pointers->m_anticheat_bypass = 0;
+		//*g_pointers->m_anticheat_bypass = 0;
 	}
 }
