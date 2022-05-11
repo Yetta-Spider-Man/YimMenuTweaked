@@ -1,18 +1,24 @@
 #include "backend/looped/looped.hpp"
 #include "core/data/speedo_meters.hpp"
 #include "natives.hpp"
+#include "gui.hpp"
 
 namespace big
 {
 	void backend_vehicle::speedo_meter()
 	{
+		if (g_gui.m_opened) //Flickers and turns invisible when opened. This doesnt fix that but it does fix the flickering.
+			return;
+
 		SpeedoMeter speedo_type = g->vehicle.speedo_meter.type;
 
-		if (speedo_type == SpeedoMeter::DISABLED || HUD::IS_PAUSE_MENU_ACTIVE() || HUD::IS_WARNING_MESSAGE_ACTIVE() || CAM::IS_SCREEN_FADED_OUT() || CAM::IS_SCREEN_FADING_OUT() || CAM::IS_SCREEN_FADING_IN()) return;
+		if (speedo_type == SpeedoMeter::DISABLED || HUD::IS_PAUSE_MENU_ACTIVE() || HUD::IS_WARNING_MESSAGE_ACTIVE() || CAM::IS_SCREEN_FADED_OUT() || CAM::IS_SCREEN_FADING_OUT() || CAM::IS_SCREEN_FADING_IN()) 
+			return;
 
 		Vehicle veh = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false);
 
-		if (veh == 0) return;
+		if (veh == 0) 
+			return;
 
 		char speed_type[16], speed[16];
 		float veh_speed = ENTITY::GET_ENTITY_SPEED(veh);

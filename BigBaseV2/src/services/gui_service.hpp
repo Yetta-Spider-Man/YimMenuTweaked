@@ -77,7 +77,7 @@ namespace big
 				{ tabs::PROTECTION, { "Protection", view::protection }},
 				{ tabs::SPOOFING, { "Spoofing", view::spoofing }},
 			}}},
-
+			
 			{ tabs::MAIN_SETTINGS, { "Settings", nullptr,
 			{
 				{ tabs::HOTKEYS, { "Hotkeys", view::hotkeys }},

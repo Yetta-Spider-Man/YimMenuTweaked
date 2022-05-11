@@ -7,6 +7,8 @@
 #include "script.hpp"
 #include "teleport.hpp"
 
+#include "script_global.hpp"
+
 namespace big::vehicle
 {
 	inline bool owns_vehicle()
@@ -15,6 +17,11 @@ namespace big::vehicle
 		Vehicle vehicle = PED::GET_VEHICLE_PED_IS_USING(ped);
 
 		return PED::IS_PED_IN_ANY_VEHICLE(ped, FALSE) && NETWORK::NETWORK_HAS_CONTROL_OF_ENTITY(vehicle);
+	}
+
+	inline void go_into_personal_vehicle()
+	{
+		*script_global(2671447).at(8).as<int*>() = 1;
 	}
 
 	inline void bring(Vehicle veh, Vector3 location, bool put_in = true)

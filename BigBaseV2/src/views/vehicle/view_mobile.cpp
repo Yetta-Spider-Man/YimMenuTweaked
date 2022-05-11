@@ -5,37 +5,15 @@
 
 namespace big
 {
-	void view::mobile() 
+	void view::mobile()
 	{
-		components::button("Bring personal vehicle", [] 
-		{
-			Vehicle veh = globals::get_personal_vehicle();
+		components::button("Fix all personal vehicles", []
+			{
+				int amount_fixed = mobile::mors_mutual::fix_all();
+				g_notification_service->push("Mobile", fmt::format("{} vehicle{} been fixed.", amount_fixed, amount_fixed == 1 ? " has" : "s have"));
+			});
 
-			if (ENTITY::IS_ENTITY_DEAD(veh, false)) 
-				return g_notification_service->push_error("Teleport", "Invalid vehicle handle...");
-
-			Vector3 location = ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true);
-
-			vehicle::bring(veh, location);
-		});
-
-		components::button("Go to personal vehicle", []
-		{
-			Vehicle veh = globals::get_personal_vehicle();
-
-			if (ENTITY::IS_ENTITY_DEAD(veh, false)) 
-				return g_notification_service->push_error("Teleport", "Invalid vehicle handle...");
-
-			teleport::to_coords(ENTITY::GET_ENTITY_COORDS(veh, true));
-		});
-
-		components::button("Fix all personal vehicles", [] 
-		{
-			int amount_fixed = mobile::mors_mutual::fix_all();
-			g_notification_service->push("Mobile", fmt::format("{} vehicle{} been fixed.", amount_fixed, amount_fixed == 1 ? " has" : "s have"));
-		});
-
-		components::small_text("Personal vehicles");
+		components::small_text("Personal vehicles list");
 
 		static char search[64];
 		static std::string lower_search;
@@ -50,27 +28,31 @@ namespace big
 			std::transform(lower_search.begin(), lower_search.end(), lower_search.begin(), tolower);
 		}
 
+		g_mobile_service->refresh_personal_vehicles();
 		if (ImGui::ListBoxHeader("##personal_veh_list", { 400.f, 500.f }))
 		{
-			for (auto& it : g_mobile_service->m_personal_vehicles)
+			if (g_mobile_service->personal_vehicles().empty())
+				ImGui::Text("No personal vehicles found. Join GTA V Online");
+			else
 			{
-				std::string label = it.first;
-				auto& personal_veh = it.second;
-
-				std::string lower = label.c_str();
-				std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
-
-				if (lower.find(lower_search) != std::string::npos)
+				const auto personal_veh_idx = mobile::util::get_current_personal_vehicle();
+				for (const auto& it : g_mobile_service->personal_vehicles())
 				{
-					if (ImGui::Selectable(label.c_str(), personal_veh->get_id() == mobile::util::get_current_personal_vehicle()))
-					{
-						strcpy(search, "");
-						lower_search = search;
+					const auto& label = it.first;
+					const auto& personal_veh = it.second;
 
-						g_fiber_pool->queue_job([&personal_veh]
+					auto lower = label;
+					std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
+
+					if (lower.find(lower_search) != std::string::npos)
+					{
+						if (ImGui::Selectable(label.c_str(), personal_veh->get_id() == personal_veh_idx))
 						{
-							personal_veh->summon();
-						});
+							strcpy(search, "");
+							lower_search = search;
+
+							g_fiber_pool->queue_job([&personal_veh] { personal_veh->summon(); });
+						}
 					}
 				}
 			}
@@ -82,15 +64,8 @@ namespace big
 
 		ImGui::BeginGroup();
 
-		if (ImGui::Button("Fetch personal vehicles"))
-		{
-			QUEUE_JOB_BEGIN_CLAUSE()
-			{
-				g_mobile_service->register_vehicles();
-			}
-			QUEUE_JOB_END_CLAUSE
-		}
-		ImGui::Checkbox("Spawn in vehicle", &g->vehicle.pv_teleport_into);
-			
+		ImGui::Checkbox("Spawn in Vehicle", &g->vehicle.pv_teleport_into);
+
+		ImGui::EndGroup();
 	}
 }
