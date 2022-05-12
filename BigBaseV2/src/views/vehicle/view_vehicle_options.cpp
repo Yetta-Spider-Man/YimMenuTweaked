@@ -15,8 +15,8 @@ namespace big
 
 		ImGui::EndGroup();
 		ImGui::SameLine();
+
 		ImGui::BeginGroup();
-        
 		if (ImGui::TreeNode("Paint"))
 		{
 			ImGui::ListBox("RGB Type", &g->vehicle.rainbow_paint, vehicle::rgb_types, 3);
@@ -26,7 +26,6 @@ namespace big
 
 			ImGui::TreePop();
 		}
-
 		ImGui::EndGroup();
 
 		ImGui::Separator();

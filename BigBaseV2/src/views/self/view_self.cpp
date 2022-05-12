@@ -19,7 +19,6 @@ namespace big
 		ImGui::SameLine();
 		ImGui::BeginGroup();
 
-		ImGui::Checkbox("No idle kick", &g->tunables.no_idle_kick); //Should be protection
 		ImGui::Checkbox("Noclip", &g->self.noclip);
 		ImGui::Checkbox("Freecam", &g->self.free_cam);
 

@@ -437,7 +437,7 @@
     <ClCompile Include="src\backend\looped\engine\update_pointers.cpp">
       <Filter>backend\looped\system</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\tunables\no_idle_kick.cpp">
+    <ClCompile Include="src\backend\looped\network\no_idle_kick.cpp">
       <Filter>backend\looped\tunables</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\engine\despawn_bypass.cpp">

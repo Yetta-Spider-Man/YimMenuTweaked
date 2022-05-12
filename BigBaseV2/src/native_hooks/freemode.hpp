@@ -42,5 +42,11 @@ namespace big
 
 			src->set_return_value<BOOL>(TRUE);
 		}
+
+		inline void NETWORK_SESSION_GET_KICK_VOTE(rage::scrNativeCallContext* src)
+		{
+			if (g->protections.vote_kick) //If you log any of this you get constantly spammed, not worth it.
+				src->set_return_value<BOOL>(FALSE);
+		}
 	}
 }

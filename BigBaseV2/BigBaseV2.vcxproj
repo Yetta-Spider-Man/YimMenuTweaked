@@ -297,7 +297,7 @@
     <ClCompile Include="src\backend\looped\self\fast_run.cpp" />
     <ClCompile Include="src\backend\looped\engine\local_time.cpp" />
     <ClCompile Include="src\backend\looped\engine\update_pointers.cpp" />
-    <ClCompile Include="src\backend\looped\self\tunables\no_idle_kick.cpp" />
+    <ClCompile Include="src\backend\looped\network\no_idle_kick.cpp" />
     <ClCompile Include="src\backend\looped\engine\despawn_bypass.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\horn_boost.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\ls_customs.cpp" />

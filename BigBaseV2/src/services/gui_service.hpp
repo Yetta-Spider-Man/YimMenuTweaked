@@ -67,7 +67,7 @@ namespace big
 				{ tabs::MOBILE, { "Mobile", view::mobile }},
 				{ tabs::SPAWN, { "Spawn", view::spawn }},
 
-				{ tabs::HANDLING_CURRENT_PROFILE, {"Handling", view::handling_current_profile } },
+				//{ tabs::HANDLING_CURRENT_PROFILE, {"Handling", view::handling_current_profile } }, //For now
 			}}},
 
 			{ tabs::MAIN_NETWORK, { "Network", nullptr,

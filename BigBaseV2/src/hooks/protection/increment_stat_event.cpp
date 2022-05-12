@@ -21,15 +21,18 @@ namespace big
 	{
 		auto stat = net_event->m_stat;
 
-		if (FIND(stat, blocked_stat))
+		if (g->protections.stats)
 		{
-			const std::string report = fmt::format("From: {}", sender->get_name());
+			if (FIND(stat, blocked_stat))
+			{
+				const std::string report = fmt::format("From: {}", sender->get_name());
 
-			if (g->notifications.protection.log)
-				LOG(INFO) << "Blocked report; " << report;
+				if (g->notifications.protection.log)
+					LOG(INFO) << "Blocked report; " << report;
 
-			if (g->notifications.protection.notify)
-				g_notification_service->push_warning("BLOCKED REPORT", report);
+				if (g->notifications.protection.notify)
+					g_notification_service->push_warning("BLOCKED REPORT", report);
+			}
 		}
 
 		return g_hooking->m_increment_stat_hook.get_original<decltype(&increment_stat_event)>()(net_event, sender, a3);

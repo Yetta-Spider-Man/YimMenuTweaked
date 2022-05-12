@@ -6,19 +6,22 @@ namespace big
 
 	__int64* hooks::chat_receive(__int64 chat_pointer, __int64 unk2, __int64 peerId, const char* msg, char IsTeam)
 	{
-		if (msg == previous_message)
+		if (g->protections.chat)
 		{
-			std::string message = fmt::format("Duplicate message purged: {}", msg);
+			if (msg == previous_message)
+			{
+				std::string message = fmt::format("Duplicate message purged: {}", msg);
 
-			if (g->notifications.protection.log)
-				LOG(WARNING) << message;
+				if (g->notifications.protection.log)
+					LOG(WARNING) << message;
 
-			if (g->notifications.protection.notify)
-				g_notification_service->push_warning("Protections", message);
+				if (g->notifications.protection.notify)
+					g_notification_service->push_warning("Protections", message);
 
-			return nullptr; //Blocks the message from appearing in chat
+				return nullptr; //Blocks the message from appearing in chat
+			}
 		}
-		
+
 		previous_message = msg;
 
 		//Displays the message in chat as normal

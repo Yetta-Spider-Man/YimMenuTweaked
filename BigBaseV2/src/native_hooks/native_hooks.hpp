@@ -29,6 +29,8 @@ namespace big
 			add_native_detour(RAGE_JOAAT("freemode"), 0x95914459A87EBA28, freemode::NETWORK_BAIL);
 
 			add_native_detour(RAGE_JOAAT("freemode"), 0x580CE4438479CC61, freemode::NETWORK_CAN_BAIL); //Testing
+			add_native_detour(RAGE_JOAAT("freemode"), 0xD6D09A6F32F49EF1, freemode::NETWORK_SESSION_GET_KICK_VOTE);
+
 
 			//https://github.com/Yimura/YimMenu/discussions/143
 			add_native_detour(RAGE_JOAAT("freemode"), 0x5D10B3795F3FC886, freemode::NETWORK_HAS_RECEIVED_HOST_BROADCAST_DATA);

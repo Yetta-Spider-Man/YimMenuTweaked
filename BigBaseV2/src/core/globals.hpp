@@ -19,11 +19,6 @@ namespace big
 			bool script_event_logging = false;
 		};
 
-		struct tunables 
-		{
-			bool no_idle_kick = false;
-		};
-
 		struct notifications
 		{
 			struct pair
@@ -49,33 +44,19 @@ namespace big
 
 		struct protections 
 		{
-			struct script_events 
-			{
-				bool bounty = true;
-				bool ceo_ban = true;
-				bool ceo_kick = true;
-				bool ceo_money = true;
-				bool clear_wanted_level = true;
-				bool fake_deposit = true;
-				bool force_mission = true;
-				bool force_teleport = true;
-				bool gta_banner = true;
-				bool network_bail = true;
-				bool personal_vehicle_destroyed = true;
-				bool remote_off_radar = true;
-				bool rotate_cam = true;
-				bool send_to_cutscene = true;
-				bool send_to_island = true;
-				bool sound_spam = true;
-				bool spectate = true;
-				bool transaction_error = true;
-				bool vehicle_kick = true;
-				
-			};
+			bool script_events = true;
+			bool game_events = true;
+			bool chat = true;
+			bool NET_ARRAY_HANDLER = true;
+			bool TASK_VEHICLE_TEMP_ACTION = true;
+
+			bool afk_kick = true;
+			bool vote_kick = true;
+
+			bool stats = true;
+			bool rate_limit = true;
 
 			bool freemode_terminated = false;
-
-			script_events script_events{};
 		};
 
 		struct rgb 
@@ -115,7 +96,7 @@ namespace big
 			struct hotkeys
 			{
 				bool editing_menu_toggle = false;
-				int menu_toggle = VK_INSERT;
+				int menu_toggle = VK_DELETE;
 				int teleport_waypoint = 0;
 			};
 
@@ -227,7 +208,6 @@ namespace big
 		int player_count = 0;
 
 		debug debug{};
-		tunables tunables{};
 		notifications notifications{};
 		player player{};
 		protections protections{};
@@ -266,14 +246,22 @@ namespace big
 			this->notifications.misc.log = j["notifications"]["misc"]["log"];
 			this->notifications.misc.notify = j["notifications"]["misc"]["notify"];
 
+			/*this->protections.script_events = j["protections"]["script_events"];
+			this->protections.game_events = j["protections"]["game_events"];
+			this->protections.chat = j["protections"]["chat"];
+			this->protections.NET_ARRAY_HANDLER = j["protections"]["NET_ARRAY_HANDLER"];
+			this->protections.TASK_VEHICLE_TEMP_ACTION = j["protections"]["TASK_VEHICLE_TEMP_ACTION"];
+			this->protections.afk_kick = j["protections"]["afk_kick"];
+			this->protections.vote_kick = j["protections"]["vote_kick"];
+			this->protections.stats = j["protections"]["stats"];
+			this->protections.rate_limit = j["protections"]["rate_limit"];*/
+
 			this->rgb.fade = j["rgb"]["fade"];
 			this->rgb.spasm = j["rgb"]["spasm"];
 			this->rgb.r = j["rgb"]["r"];
 			this->rgb.g = j["rgb"]["g"];
 			this->rgb.b = j["rgb"]["b"];
 			this->rgb.speed = j["rgb"]["speed"];
-
-			this->tunables.no_idle_kick = j["tunables"]["no_idle_kick"];
 
 			this->self.godmode = j["self"]["godmode"];
 			this->self.never_wanted = j["self"]["never_wanted"];
@@ -361,8 +349,6 @@ namespace big
 				};
 			};
 
-			const auto& script_handler_protections = this->protections.script_events;
-
 			return nlohmann::json{
 				{
 					"debug",
@@ -376,37 +362,22 @@ namespace big
 						{ "protection", return_notify_pair(g->notifications.protection) },
 						{ "players", return_notify_pair(g->notifications.players) },
 						{ "modder_detection", return_notify_pair(g->notifications.modder_detection) },
-						{ "misc", return_notify_pair(g->notifications.misc) },
+						{ "misc", return_notify_pair(g->notifications.misc) }
 					}
 				},
-				{
-					"protections",
-					{
-						{
-							"script_events", {
-								{ "bounty", script_handler_protections.bounty },
-								{ "ceo_ban", script_handler_protections.ceo_ban },
-								{ "ceo_kick", script_handler_protections.ceo_kick },
-								{ "ceo_money", script_handler_protections.ceo_money },
-								{ "clear_wanted_level", script_handler_protections.clear_wanted_level },
-								{ "fake_deposit", script_handler_protections.fake_deposit },
-								{ "force_mission", script_handler_protections.force_mission },
-								{ "force_teleport", script_handler_protections.force_teleport },
-								{ "gta_banner", script_handler_protections.gta_banner },
-								{ "network_bail", script_handler_protections.network_bail },
-								{ "personal_vehicle_destroyed", script_handler_protections.personal_vehicle_destroyed },
-								{ "remote_off_radar", script_handler_protections.remote_off_radar },
-								{ "rotate_cam", script_handler_protections.rotate_cam },
-								{ "send_to_cutscene", script_handler_protections.send_to_cutscene },
-								{ "send_to_island", script_handler_protections.send_to_island },
-								{ "sound_spam", script_handler_protections.sound_spam },
-								{ "spectate", script_handler_protections.spectate },
-								{ "transaction_error", script_handler_protections.transaction_error },
-								{ "vehicle_kick", script_handler_protections.vehicle_kick }
-							}
-						}
+				/*{
+					"protections", {
+						{ "script_events", this->protections.script_events },
+						{ "game_events", this->protections.game_events },
+						{ "chat", this->protections.chat },
+						{ "NET_ARRAY_HANDLER", this->protections.NET_ARRAY_HANDLER },
+						{ "TASK_VEHICLE_TEMP_ACTION", this->protections.TASK_VEHICLE_TEMP_ACTION },
+						{ "vote_kick", this->protections.vote_kick },
+						{ "afk_kick", this->protections.afk_kick },
+						{ "stats", this->protections.stats },
+						{ "rate_limit", this->protections.rate_limit }
 					}
-				},
+				},*/
 				{
 					"rgb", {
 					{ "fade", this->rgb.fade },
@@ -415,11 +386,6 @@ namespace big
 					{ "g", this->rgb.g },
 					{ "b", this->rgb.b },
 					{ "speed", this->rgb.speed }
-					}
-				},
-				{
-					"tunables", {
-						{ "no_idle_kick", this->tunables.no_idle_kick }
 					}
 				},
 				{

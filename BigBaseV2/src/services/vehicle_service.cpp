@@ -37,6 +37,7 @@ namespace big
 	{
 		if (auto it = this->m_active_profiles.find(hash); it != this->m_active_profiles.end())
 			return it->second;
+
 		return std::string("");
 	}
 
@@ -235,6 +236,7 @@ namespace big
 		{
 			if (safe_to_modify())
 				*g_local_player->m_vehicle->m_handling = it->second;
+
 			this->m_active_profiles.erase(g_local_player->m_vehicle->m_handling->m_model_hash);
 
 			return true;

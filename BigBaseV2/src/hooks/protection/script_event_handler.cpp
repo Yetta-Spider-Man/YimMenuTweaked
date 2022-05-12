@@ -21,162 +21,103 @@ namespace big
 
 		const auto& notify = g->notifications.protection;
 
-		switch (hash)
+		if (g->protections.script_events) //Replace dumb switch case with find function
 		{
-		case eRemoteEvent::Bounty:
-			if (g->protections.script_events.bounty)
+			switch (hash)
 			{
+			case eRemoteEvent::Bounty:
 				format_string(player_name, "Bounty", notify.log, notify.notify);
-
 				return true;
-			}
-			break;
-		case eRemoteEvent::CeoBan:
-			if (g->protections.script_events.ceo_ban)
-			{
+
+			case eRemoteEvent::CeoBan:
 				format_string(player_name, "Ceo Ban", notify.log, notify.notify);
-
 				return true;
-			}
-			break;
-		case eRemoteEvent::CeoKick:
-			if (g->protections.script_events.ceo_kick)
-			{
+
+			case eRemoteEvent::CeoKick:
 				format_string(player_name, "Ceo Kick", notify.log, notify.notify);
-
 				return true;
-			}
-			break;
-		case eRemoteEvent::CeoMoney:
-			if (g->protections.script_events.ceo_money)
-			{
+
+			case eRemoteEvent::CeoMoney:
 				format_string(player_name, "Ceo Money", notify.log, notify.notify);
-
 				return true;
-			}
-			break;
-		case eRemoteEvent::ClearWantedLevel:
-			if (g->protections.script_events.clear_wanted_level)
-			{
+
+			case eRemoteEvent::ClearWantedLevel:
 				format_string(player_name, "Clear Wanted Level", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::FakeDeposit:
-			if (g->protections.script_events.fake_deposit)
-			{
+
+			case eRemoteEvent::FakeDeposit:
 				format_string(player_name, "Fake Deposit", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::ForceMission:
-			if (g->protections.script_events.force_mission)
-			{
+
+			case eRemoteEvent::ForceMission:
 				format_string(player_name, "Force Mission", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::GtaBanner:
-			if (g->protections.script_events.gta_banner)
-			{
+
+			case eRemoteEvent::GtaBanner:
 				format_string(player_name, "GTA Banner", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::NetworkBail:
-			if (g->protections.script_events.network_bail)
-			{
+
+			case eRemoteEvent::NetworkBail:
 				format_string(player_name, "Network Bail", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::PersonalVehicleDestroyed:
-			if (g->protections.script_events.personal_vehicle_destroyed)
-			{
+
+			case eRemoteEvent::PersonalVehicleDestroyed:
 				format_string(player_name, "Personal Vehicle Destroyed", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::RemoteOffradar:
-			if (g->protections.script_events.remote_off_radar)
-			{
+
+			case eRemoteEvent::RemoteOffradar:
 				format_string(player_name, "Off Radar", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::RotateCam:
-			if (g->protections.script_events.rotate_cam)
-			{
+
+			case eRemoteEvent::RotateCam:
 				if (CNetworkPlayerMgr* player_mgr = gta_util::get_network_player_mgr(); player_mgr != nullptr)
 					if (args[2] == player_mgr->m_local_net_player->m_player_id)
 						format_string(player_name, "Rotate Cam", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::SendToCutscene:
-			if (g->protections.script_events.send_to_cutscene)
-			{
+
+			case eRemoteEvent::SendToCutscene:
 				format_string(player_name, "Send to Cutscene", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::SendToIsland:
-			if (g->protections.script_events.send_to_island)
-			{
+
+			case eRemoteEvent::SendToIsland:
 				format_string(player_name, "Send to Island", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::SoundSpam:
-			if (g->protections.script_events.sound_spam)
-			{
+
+			case eRemoteEvent::SoundSpam:
 				format_string(player_name, "Sound Spamn", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::Spectate:
-			if (g->protections.script_events.spectate)
-			{
+
+			case eRemoteEvent::Spectate:
 				format_string(player_name, "Spectate", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::Teleport:
-			if (g->protections.script_events.force_teleport)
-			{
+
+			case eRemoteEvent::Teleport:
 				format_string(player_name, "Apartment Invite", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::TransactionError:
-			if (g->protections.script_events.transaction_error)
-			{
+
+			case eRemoteEvent::TransactionError:
 				format_string(player_name, "Transaction Error", notify.log, notify.notify);
 
 				return true;
-			}
-			break;
-		case eRemoteEvent::VehicleKick:
-			if (g->protections.script_events.vehicle_kick)
-			{
+
+			case eRemoteEvent::VehicleKick:
 				format_string(player_name, "Vehicle Kick", notify.log, notify.notify);
 
 				return true;
 			}
-			break;
 		}
 
 		if (g->debug.script_event_logging)
