@@ -13,3 +13,4 @@ set show preview to false when car is selected
 clean includes
 improve protection
 add protocol cleanup
+upgrade current vehicle

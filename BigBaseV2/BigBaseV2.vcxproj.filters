@@ -140,9 +140,6 @@
     <ClInclude Include="src\core\data\special_ammo_types.hpp">
       <Filter>core\data</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\data\speedo_meters.hpp">
-      <Filter>core\data</Filter>
-    </ClInclude>
     <ClInclude Include="src\core\enums.hpp">
       <Filter>core</Filter>
     </ClInclude>
@@ -407,12 +404,6 @@
     <ClCompile Include="src\backend\looped\network\spectate.cpp">
       <Filter>backend\looped\player</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\vehicle\rgb\synced_fade.cpp">
-      <Filter>backend\looped\rgb</Filter>
-    </ClCompile>
-    <ClCompile Include="src\backend\looped\vehicle\rgb\synced_spam.cpp">
-      <Filter>backend\looped\rgb</Filter>
-    </ClCompile>
     <ClCompile Include="src\backend\looped\self\free_cam.cpp">
       <Filter>backend\looped\self</Filter>
     </ClCompile>
@@ -447,12 +438,6 @@
       <Filter>backend\looped\vehicle</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\vehicle\ls_customs.cpp">
-      <Filter>backend\looped\vehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\backend\looped\vehicle\rgb\rgb_paint.cpp">
-      <Filter>backend\looped\vehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\backend\looped\vehicle\speedo_meter.cpp">
       <Filter>backend\looped\vehicle</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\vehicle\vehicle_god.cpp">

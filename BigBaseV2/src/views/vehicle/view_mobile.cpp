@@ -20,7 +20,7 @@ namespace big
 
 		ImGui::BeginGroup();
 
-		ImGui::SetNextItemWidth(400.f);
+		ImGui::SetNextItemWidth(200.f);
 
 		if (ImGui::InputTextWithHint("##search_pv_list", "Search", search, sizeof(search)))
 		{
@@ -29,13 +29,14 @@ namespace big
 		}
 
 		g_mobile_service->refresh_personal_vehicles();
-		if (ImGui::ListBoxHeader("##personal_veh_list", { 400.f, 500.f }))
+		if (ImGui::ListBoxHeader("##personal_veh_list", { 200.f, 200.f }))
 		{
 			if (g_mobile_service->personal_vehicles().empty())
 				ImGui::Text("No personal vehicles found. Join GTA V Online");
 			else
 			{
 				const auto personal_veh_idx = mobile::util::get_current_personal_vehicle();
+
 				for (const auto& it : g_mobile_service->personal_vehicles())
 				{
 					const auto& label = it.first;

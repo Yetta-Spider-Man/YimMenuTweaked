@@ -61,18 +61,9 @@ namespace big
 	class backend_vehicle
 	{
 	public:
-		class rgb
-		{
-		public:
-			static void synced_fade();
-			static void synced_spasm();
-		};
-	
 		static void godmode();
 		static void horn_boost();
 		static void ls_customs();
-		static void rainbow_paint();
-		static void speedo_meter();
 		static void auto_repair();
 	};
 }

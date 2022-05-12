@@ -143,11 +143,4 @@ namespace big
 		JOIN_CREW,
 		LEAVE_ONLINE = -1
 	};
-
-	enum class SpeedoMeter
-	{
-		DISABLED,
-		KMH,
-		MPH
-	};
 }

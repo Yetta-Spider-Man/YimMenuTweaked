@@ -59,16 +59,6 @@ namespace big
 			bool freemode_terminated = false;
 		};
 
-		struct rgb 
-		{
-			bool fade = false;
-			bool spasm = false;
-			int r = 255;
-			int g = 0;
-			int b = 0;
-			int speed = 0;
-		};
-
 		struct self {
 			bool force_wanted_level = false;
 			bool free_cam = false;
@@ -126,23 +116,11 @@ namespace big
 
 		struct vehicle 
 		{
-			struct speedo_meter 
-			{
-				SpeedoMeter type = SpeedoMeter::DISABLED;
-
-				float x = .9f;
-				float y = .72f;
-
-				bool left_side = false;
-			};
-
 			bool auto_repair = false;
 			bool god_mode = false;
 			bool horn_boost = false;
 			bool ls_customs = false; // don't save this to disk
 			bool pv_teleport_into = false;
-			int rainbow_paint = 0;
-			speedo_meter speedo_meter{};
 		};
 
 		struct weapons 
@@ -211,7 +189,6 @@ namespace big
 		notifications notifications{};
 		player player{};
 		protections protections{};
-		rgb rgb{};
 		self self{};
 		session session{};
 		settings settings{};
@@ -256,13 +233,6 @@ namespace big
 			this->protections.stats = j["protections"]["stats"];
 			this->protections.rate_limit = j["protections"]["rate_limit"];*/
 
-			this->rgb.fade = j["rgb"]["fade"];
-			this->rgb.spasm = j["rgb"]["spasm"];
-			this->rgb.r = j["rgb"]["r"];
-			this->rgb.g = j["rgb"]["g"];
-			this->rgb.b = j["rgb"]["b"];
-			this->rgb.speed = j["rgb"]["speed"];
-
 			this->self.godmode = j["self"]["godmode"];
 			this->self.never_wanted = j["self"]["never_wanted"];
 			this->self.off_radar = j["self"]["off_radar"];
@@ -288,12 +258,6 @@ namespace big
 			this->vehicle.god_mode = j["vehicle"]["god_mode"];
 			this->vehicle.horn_boost = j["vehicle"]["horn_boost"];
 			this->vehicle.pv_teleport_into = j["vehicle"]["pv_teleport_into"];
-			this->vehicle.rainbow_paint = j["vehicle"]["rainbow_paint"];
-
-			this->vehicle.speedo_meter.type = (SpeedoMeter)j["vehicle"]["speedo_meter"]["type"];
-			this->vehicle.speedo_meter.left_side = j["vehicle"]["speedo_meter"]["left_side"];
-			this->vehicle.speedo_meter.x = j["vehicle"]["speedo_meter"]["position_x"];
-			this->vehicle.speedo_meter.y = j["vehicle"]["speedo_meter"]["position_y"];
 
 			this->weapons.custom_weapon = (CustomWeapon)j["weapons"]["custom_weapon"];
 			this->weapons.force_crosshairs = j["weapons"]["force_crosshairs"];
@@ -379,16 +343,6 @@ namespace big
 					}
 				},*/
 				{
-					"rgb", {
-					{ "fade", this->rgb.fade },
-					{ "spasm", this->rgb.spasm },
-					{ "r", this->rgb.r },
-					{ "g", this->rgb.g },
-					{ "b", this->rgb.b },
-					{ "speed", this->rgb.speed }
-					}
-				},
-				{
 					"self", {
 						{ "godmode", this->self.godmode },
 						{ "never_wanted", this->self.never_wanted },
@@ -433,15 +387,6 @@ namespace big
 						{ "god_mode", this->vehicle.god_mode },
 						{ "horn_boost", this->vehicle.horn_boost },
 						{ "pv_teleport_into", this->vehicle.pv_teleport_into },
-						{ "rainbow_paint", this->vehicle.rainbow_paint },
-						{
-							"speedo_meter", {
-								{ "type", (int)this->vehicle.speedo_meter.type },
-								{ "left_side", this->vehicle.speedo_meter.left_side },
-								{ "position_x", this->vehicle.speedo_meter.x },
-								{ "position_y", this->vehicle.speedo_meter.y }
-							}
-						}
 					}
 				},
 				{

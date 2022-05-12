@@ -180,7 +180,6 @@
     <ClInclude Include="src\core\data\levels.hpp" />
     <ClInclude Include="src\core\data\session_types.hpp" />
     <ClInclude Include="src\core\data\special_ammo_types.hpp" />
-    <ClInclude Include="src\core\data\speedo_meters.hpp" />
     <ClInclude Include="src\core\enums.hpp" />
     <ClInclude Include="src\core\globals.hpp" />
     <ClInclude Include="src\crossmap.hpp" />
@@ -287,8 +286,6 @@
     <ClCompile Include="src\backend\looped\network\player_never_wanted.cpp" />
     <ClCompile Include="src\backend\looped\network\spectate.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\auto_repair.cpp" />
-    <ClCompile Include="src\backend\looped\vehicle\rgb\synced_fade.cpp" />
-    <ClCompile Include="src\backend\looped\vehicle\rgb\synced_spam.cpp" />
     <ClCompile Include="src\backend\looped\self\free_cam.cpp" />
     <ClCompile Include="src\backend\looped\self\godmode.cpp" />
     <ClCompile Include="src\backend\looped\self\noclip.cpp" />
@@ -301,8 +298,6 @@
     <ClCompile Include="src\backend\looped\engine\despawn_bypass.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\horn_boost.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\ls_customs.cpp" />
-    <ClCompile Include="src\backend\looped\vehicle\rgb\rgb_paint.cpp" />
-    <ClCompile Include="src\backend\looped\vehicle\speedo_meter.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\vehicle_god.cpp" />
     <ClCompile Include="src\backend\looped\self\weapons\ammo_special_type.cpp" />
     <ClCompile Include="src\backend\looped\self\weapons\special\cage_gun.cpp" />

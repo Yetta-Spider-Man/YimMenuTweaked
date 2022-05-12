@@ -1,4 +1,3 @@
-#include "api/api.hpp"
 #include "backend.hpp"
 #include "fiber_pool.hpp"
 #include "looped/looped.hpp"
@@ -31,13 +30,6 @@ namespace big
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			backend_engine::hud_transition_state();
-
-		}QUEUE_JOB_END_CLAUSE
-
-		QUEUE_JOB_BEGIN_CLAUSE()
-		{
-			backend_vehicle::rgb::synced_fade();
-			backend_vehicle::rgb::synced_spasm();
 
 		}QUEUE_JOB_END_CLAUSE
 
@@ -97,8 +89,6 @@ namespace big
 			backend_engine::vehicle_despawn_bypass();
 			backend_vehicle::godmode();
 			backend_vehicle::horn_boost();
-			backend_vehicle::rainbow_paint();
-			backend_vehicle::speedo_meter();
 			backend_vehicle::auto_repair();
 
 		}QUEUE_JOB_END_CLAUSE
