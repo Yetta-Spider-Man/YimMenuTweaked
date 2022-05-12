@@ -1,4 +1,19 @@
-todo:
+TODO:
 
-organize view categories into classes
-organize front end includes
+move idle kick to protection
+vehicle spawn with color
+vehicle spawn license plate
+edit vehicle spawn function
+redo config system
+remove all current protection
+check all online features only and add proper notifications (as misc)
+add notification feedback for everything
+delete all the shitty individual notification toggles and replace it with one ON or OFF (or separate into category)
+set show preview to false when car is selected
+
+separate protection config into:
+//Script events
+//Game events
+//Chat
+//NET_ARRAY_HANDLER
+//TASK_VEHICLE_TEMP_ACTION

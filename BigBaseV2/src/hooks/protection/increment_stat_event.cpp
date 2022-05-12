@@ -25,10 +25,10 @@ namespace big
 		{
 			const std::string report = fmt::format("From: {}", sender->get_name());
 
-			if (g->notifications.reports.log)
+			if (g->notifications.protection.log)
 				LOG(INFO) << "Blocked report; " << report;
 
-			if (g->notifications.reports.notify)
+			if (g->notifications.protection.notify)
 				g_notification_service->push_warning("BLOCKED REPORT", report);
 		}
 

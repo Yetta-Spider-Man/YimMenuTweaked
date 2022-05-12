@@ -36,7 +36,7 @@ namespace big
 					{
 						ent = 0;
 
-						g_notification_service->push_warning("Weapons", "You can't move player entities!");
+						//g_notification_service->push_warning("Weapons", "You can't move player entities!");
 					}
 					else
 					{
@@ -49,7 +49,7 @@ namespace big
 							{
 								TASK::SET_HIGH_FALL_TASK(ent, 0, 0, 0);
 
-								g_notification_service->push_warning("Weapons", "Selected entity at crosshair.");
+								//g_notification_service->push_warning("Weapons", "Selected entity at crosshair.");
 							}
 						}
 					}
@@ -58,7 +58,7 @@ namespace big
 				{
 					ent = 0;
 
-					g_notification_service->push_warning("Weapons", "No entity found.");
+					//g_notification_service->push_warning("Weapons", "No entity found.");
 				}
 			}
 
@@ -73,7 +73,9 @@ namespace big
 				{
 					ent = 0;
 
-					return g_notification_service->push_warning("Weapons", "Failed to take control of entity.");
+					return;
+
+					//return g_notification_service->push_warning("Weapons", "Failed to take control of entity.");
 				}
 
 				ENTITY::SET_ENTITY_COLLISION(ent, false, false);
@@ -102,7 +104,7 @@ namespace big
 
 			ent = 0;
 
-			g_notification_service->push("Weapons", "Released entity.");
+			//g_notification_service->push("Weapons", "Released entity.");
 		}
 	}
 }

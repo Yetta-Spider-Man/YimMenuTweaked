@@ -6,20 +6,40 @@ namespace big
 	{
 		inline void NETWORK_BAIL(rage::scrNativeCallContext* src)
 		{
-			LOG(INFO) << "NETWORK_BAIL triggered";
+			std::string msg = "NETWORK_BAIL triggered!";
+
+			if (g->notifications.debug.log)
+				LOG(WARNING) << msg;
+
+			if (g->notifications.debug.notify)
+				g_notification_service->push_warning("NETWORK_BAIL", msg);
 
 			src->set_return_value<BOOL>(FALSE);
 		}
 
 		inline void NETWORK_CAN_BAIL(rage::scrNativeCallContext* src)
 		{
-			LOG(INFO) << "NETWORK_CAN_BAIL triggered";
+			std::string msg = "NETWORK_CAN_BAIL triggered!";
+
+			if (g->notifications.protection.log)
+				LOG(WARNING) << msg;
+
+			if (g->notifications.debug.notify)
+				g_notification_service->push_warning("NETWORK_BAIL", msg);
 
 			src->set_return_value<BOOL>(FALSE);
 		}
 
 		inline void NETWORK_HAS_RECEIVED_HOST_BROADCAST_DATA(rage::scrNativeCallContext* src)
 		{
+			//std::string msg = "NETWORK_HAS_RECEIVED_HOST_BROADCAST_DATA triggered!";
+
+			//if (g->notifications.debug.log)
+			//	LOG(WARNING) << msg;
+
+			//if (g->notifications.debug.notify)
+			//	g_notification_service->push_warning("NETWORK_HAS_RECEIVED_HOST_BROADCAST_DATA", msg);
+
 			src->set_return_value<BOOL>(TRUE);
 		}
 	}

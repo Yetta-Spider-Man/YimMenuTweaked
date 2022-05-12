@@ -37,7 +37,7 @@ namespace big
 				busy = false;
 				g->vehicle.ls_customs = false;
 
-				g_notification_service->push_warning("LS Customs", "You aren't in a vehicle.");
+				//g_notification_service->push_warning("LS Customs", "You aren't in a vehicle.");
 
 				return;
 			}

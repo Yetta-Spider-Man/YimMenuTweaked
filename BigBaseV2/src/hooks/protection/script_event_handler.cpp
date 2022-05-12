@@ -9,9 +9,7 @@ namespace big
 			LOG(WARNING) << "BLOCKED_SCRIPT_EVENT";
 
 		if (should_notify)
-			g_notification_service->push_warning("Script Event Protection",
-				fmt::format("From: {}\nEvent Type: {}", player_name.data(), protection_type.data())
-			);
+			g_notification_service->push_warning("Script Event Protection",fmt::format("From: {}\nEvent Type: {}", player_name.data(), protection_type.data()));
 	}
 
 	bool hooks::scripted_game_event(CScriptedGameEvent* scripted_game_event, CNetGamePlayer* player)
@@ -21,14 +19,14 @@ namespace big
 		const auto hash = static_cast<eRemoteEvent>(args[0]);
 		const auto player_name = player->get_name();
 
-		const auto& notify = g->notifications.script_event_handler;
+		const auto& notify = g->notifications.protection;
 
 		switch (hash)
 		{
 		case eRemoteEvent::Bounty:
 			if (g->protections.script_events.bounty)
 			{
-				format_string(player_name, "Bounty", notify.bounty.log, notify.bounty.notify);
+				format_string(player_name, "Bounty", notify.log, notify.notify);
 
 				return true;
 			}
@@ -36,7 +34,7 @@ namespace big
 		case eRemoteEvent::CeoBan:
 			if (g->protections.script_events.ceo_ban)
 			{
-				format_string(player_name, "Ceo Ban", notify.ceo_ban.log, notify.ceo_ban.notify);
+				format_string(player_name, "Ceo Ban", notify.log, notify.notify);
 
 				return true;
 			}
@@ -44,7 +42,7 @@ namespace big
 		case eRemoteEvent::CeoKick:
 			if (g->protections.script_events.ceo_kick)
 			{
-				format_string(player_name, "Ceo Kick", notify.ceo_kick.log, notify.ceo_kick.notify);
+				format_string(player_name, "Ceo Kick", notify.log, notify.notify);
 
 				return true;
 			}
@@ -52,7 +50,7 @@ namespace big
 		case eRemoteEvent::CeoMoney:
 			if (g->protections.script_events.ceo_money)
 			{
-				format_string(player_name, "Ceo Money", notify.ceo_money.log, notify.ceo_money.notify);
+				format_string(player_name, "Ceo Money", notify.log, notify.notify);
 
 				return true;
 			}
@@ -60,7 +58,7 @@ namespace big
 		case eRemoteEvent::ClearWantedLevel:
 			if (g->protections.script_events.clear_wanted_level)
 			{
-				format_string(player_name, "Clear Wanted Level", notify.clear_wanted_level.log, notify.clear_wanted_level.notify);
+				format_string(player_name, "Clear Wanted Level", notify.log, notify.notify);
 
 				return true;
 			}
@@ -68,7 +66,7 @@ namespace big
 		case eRemoteEvent::FakeDeposit:
 			if (g->protections.script_events.fake_deposit)
 			{
-				format_string(player_name, "Fake Deposit", notify.fake_deposit.log, notify.fake_deposit.notify);
+				format_string(player_name, "Fake Deposit", notify.log, notify.notify);
 
 				return true;
 			}
@@ -76,7 +74,7 @@ namespace big
 		case eRemoteEvent::ForceMission:
 			if (g->protections.script_events.force_mission)
 			{
-				format_string(player_name, "Force Mission", notify.force_mission.log, notify.force_mission.notify);
+				format_string(player_name, "Force Mission", notify.log, notify.notify);
 
 				return true;
 			}
@@ -84,7 +82,7 @@ namespace big
 		case eRemoteEvent::GtaBanner:
 			if (g->protections.script_events.gta_banner)
 			{
-				format_string(player_name, "GTA Banner", notify.gta_banner.log, notify.gta_banner.notify);
+				format_string(player_name, "GTA Banner", notify.log, notify.notify);
 
 				return true;
 			}
@@ -92,7 +90,7 @@ namespace big
 		case eRemoteEvent::NetworkBail:
 			if (g->protections.script_events.network_bail)
 			{
-				format_string(player_name, "Network Bail", notify.network_bail.log, notify.network_bail.notify);
+				format_string(player_name, "Network Bail", notify.log, notify.notify);
 
 				return true;
 			}
@@ -100,7 +98,7 @@ namespace big
 		case eRemoteEvent::PersonalVehicleDestroyed:
 			if (g->protections.script_events.personal_vehicle_destroyed)
 			{
-				format_string(player_name, "Personal Vehicle Destroyed", notify.personal_vehicle_destroyed.log, notify.personal_vehicle_destroyed.notify);
+				format_string(player_name, "Personal Vehicle Destroyed", notify.log, notify.notify);
 
 				return true;
 			}
@@ -108,7 +106,7 @@ namespace big
 		case eRemoteEvent::RemoteOffradar:
 			if (g->protections.script_events.remote_off_radar)
 			{
-				format_string(player_name, "Off Radar", notify.remote_off_radar.log, notify.remote_off_radar.notify);
+				format_string(player_name, "Off Radar", notify.log, notify.notify);
 
 				return true;
 			}
@@ -118,7 +116,7 @@ namespace big
 			{
 				if (CNetworkPlayerMgr* player_mgr = gta_util::get_network_player_mgr(); player_mgr != nullptr)
 					if (args[2] == player_mgr->m_local_net_player->m_player_id)
-						format_string(player_name, "Rotate Cam", notify.rotate_cam.log, notify.rotate_cam.notify);
+						format_string(player_name, "Rotate Cam", notify.log, notify.notify);
 
 				return true;
 			}
@@ -126,7 +124,7 @@ namespace big
 		case eRemoteEvent::SendToCutscene:
 			if (g->protections.script_events.send_to_cutscene)
 			{
-				format_string(player_name, "Send to Cutscene", notify.send_to_cutscene.log, notify.send_to_cutscene.notify);
+				format_string(player_name, "Send to Cutscene", notify.log, notify.notify);
 
 				return true;
 			}
@@ -134,7 +132,7 @@ namespace big
 		case eRemoteEvent::SendToIsland:
 			if (g->protections.script_events.send_to_island)
 			{
-				format_string(player_name, "Send to Island", notify.send_to_island.log, notify.send_to_island.notify);
+				format_string(player_name, "Send to Island", notify.log, notify.notify);
 
 				return true;
 			}
@@ -142,7 +140,7 @@ namespace big
 		case eRemoteEvent::SoundSpam:
 			if (g->protections.script_events.sound_spam)
 			{
-				format_string(player_name, "Sound Spamn", notify.sound_spam.log, notify.sound_spam.notify);
+				format_string(player_name, "Sound Spamn", notify.log, notify.notify);
 
 				return true;
 			}
@@ -150,7 +148,7 @@ namespace big
 		case eRemoteEvent::Spectate:
 			if (g->protections.script_events.spectate)
 			{
-				format_string(player_name, "Spectate", notify.spectate.log, notify.spectate.notify);
+				format_string(player_name, "Spectate", notify.log, notify.notify);
 
 				return true;
 			}
@@ -158,7 +156,7 @@ namespace big
 		case eRemoteEvent::Teleport:
 			if (g->protections.script_events.force_teleport)
 			{
-				format_string(player_name, "Apartment Invite", notify.force_teleport.log, notify.force_teleport.notify);
+				format_string(player_name, "Apartment Invite", notify.log, notify.notify);
 
 				return true;
 			}
@@ -166,7 +164,7 @@ namespace big
 		case eRemoteEvent::TransactionError:
 			if (g->protections.script_events.transaction_error)
 			{
-				format_string(player_name, "Transaction Error", notify.transaction_error.log, notify.transaction_error.notify);
+				format_string(player_name, "Transaction Error", notify.log, notify.notify);
 
 				return true;
 			}
@@ -174,7 +172,7 @@ namespace big
 		case eRemoteEvent::VehicleKick:
 			if (g->protections.script_events.vehicle_kick)
 			{
-				format_string(player_name, "Vehicle Kick", notify.vehicle_kick.log, notify.vehicle_kick.notify);
+				format_string(player_name, "Vehicle Kick", notify.log, notify.notify);
 
 				return true;
 			}

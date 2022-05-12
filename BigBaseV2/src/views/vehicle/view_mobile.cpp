@@ -10,7 +10,7 @@ namespace big
 		components::button("Fix all personal vehicles", []
 			{
 				int amount_fixed = mobile::mors_mutual::fix_all();
-				g_notification_service->push("Mobile", fmt::format("{} vehicle{} been fixed.", amount_fixed, amount_fixed == 1 ? " has" : "s have"));
+				//g_notification_service->push("Mobile", fmt::format("{} vehicle{} been fixed.", amount_fixed, amount_fixed == 1 ? " has" : "s have"));
 			});
 
 		components::small_text("Personal vehicles list");

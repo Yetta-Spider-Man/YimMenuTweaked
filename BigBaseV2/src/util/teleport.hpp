@@ -11,14 +11,14 @@ namespace big::teleport
 
 		if (ENTITY::IS_ENTITY_DEAD(ent, true))
 		{
-			g_notification_service->push_warning("Teleport", "Target player is dead.");
+			//g_notification_service->push_warning("Teleport", "Target player is dead.");
 
 			return false;
 		}
 
 		if (!PED::IS_PED_IN_ANY_VEHICLE(ent, true))
 		{
-			g_notification_service->push_warning("Teleport", "Target player is not in a vehicle.");
+			//g_notification_service->push_warning("Teleport", "Target player is not in a vehicle.");
 
 			return false;
 		}
@@ -29,8 +29,8 @@ namespace big::teleport
 
 		if (entity::take_control_of(ent))
 			ENTITY::SET_ENTITY_COORDS(ent, location.x, location.y, location.z, 0, 0, 0, 0);
-		else
-			g_notification_service->push_warning("Teleport", "Failed to take control of player vehicle.");
+		//else
+			//g_notification_service->push_warning("Teleport", "Failed to take control of player vehicle.");
 
 		return true;
 	}
@@ -69,7 +69,7 @@ namespace big::teleport
 	{
 		if (!veh)
 		{
-			g_notification_service->push_warning("Teleport", "Player is not in a vehicle.");
+			//g_notification_service->push_warning("Teleport", "Player is not in a vehicle.");
 
 			return false;
 		}
@@ -82,7 +82,7 @@ namespace big::teleport
 
 		if (seat_index == 255)
 		{
-			g_notification_service->push_warning("Teleport", "No seats are free in the player vehicle.");
+			//g_notification_service->push_warning("Teleport", "No seats are free in the player vehicle.");
 
 			return false;
 		}
@@ -136,7 +136,7 @@ namespace big::teleport
 	{
 		if (!to_blip((int)BlipIcons::Waypoint))
 		{
-			g_notification_service->push_warning("Teleport", "Failed to find waypoint position");
+			//g_notification_service->push_warning("Teleport", "Failed to find waypoint position");
 
 			return false;
 		}
@@ -158,7 +158,9 @@ namespace big::teleport
 				return true;
 			}
 		}
-		g_notification_service->push_warning("Teleport", "Failed to find objective position");
+
+		//g_notification_service->push_warning("Teleport", "Failed to find objective position");
+
 		return false;
 	}
 }

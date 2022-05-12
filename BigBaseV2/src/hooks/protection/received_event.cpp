@@ -52,10 +52,10 @@ namespace big
 				{
 					g_pointers->m_send_event_ack(event_manager, source_player, target_player, event_index, event_handled_bitset);
 
-					if (g->notifications.received_event.vehicle_temp_action.log)
+					if (g->notifications.protection.log)
 						LOG(INFO) << "RECEIVED_EVENT_HANDLER : " << source_player->get_name() << "sent TASK_VEHICLE_TEMP_ACTION crash.";
 
-					if (g->notifications.received_event.vehicle_temp_action.notify)
+					if (g->notifications.protection.notify)
 						g_notification_service->push_warning("Protection", fmt::format("{} sent TASK_VEHICLE_TEMP_ACTION crash.", source_player->get_name()));
 
 					return;
@@ -88,13 +88,11 @@ namespace big
 			{
 				g_pointers->m_send_event_ack(event_manager, source_player, target_player, event_index, event_handled_bitset);
 
-				if (g->notifications.received_event.clear_ped_task.log)
+				if (g->notifications.protection.log)
 					LOG(INFO) << "RECEIVED_EVENT_HANDLER : " << source_player->get_name() << " sent CLEAR_PED_TASKS event.";
 
-				if (g->notifications.received_event.clear_ped_task.notify)
-					g_notification_service->push_warning("Protection",
-						fmt::format("{} possible attempt at freezing entity.", source_player->get_name())
-					);
+				if (g->notifications.protection.notify)
+					g_notification_service->push_warning("Protection",fmt::format("{} possible attempt at freezing entity.", source_player->get_name()));
 
 				return;
 			}
@@ -113,10 +111,10 @@ namespace big
 
 			if (money >= 2000)
 			{
-				if (g->notifications.received_event.report_cash_spawn.log)
+				if (g->notifications.protection.log)
 					LOG(INFO) << "RECEIVED_EVENT_HANDLER : " << source_player->get_name() << " sent REPORT_CASH_SPAWN event.";
 
-				if (g->notifications.received_event.report_cash_spawn.notify)
+				if (g->notifications.protection.notify)
 					g_notification_service->push_warning("Protection", fmt::format("{} is spawning cash.", source_player->get_name()));
 			}
 
@@ -126,10 +124,10 @@ namespace big
 		case RockstarEvent::NETWORK_CHECK_CODE_CRCS_EVENT:
 		case RockstarEvent::REPORT_MYSELF_EVENT:
 		{
-			if (g->notifications.received_event.modder_detect.log)
+			if (g->notifications.modder_detection.log)
 				LOG(INFO) << "RECEIVED_EVENT_HANDLER : " << source_player->get_name() << " sent modder event.";
 
-			if (g->notifications.received_event.modder_detect.notify)
+			if (g->notifications.modder_detection.notify)
 				g_notification_service->push_warning("Protection", fmt::format("Detected {} as cheating.", source_player->get_name()));
 
 			break;
@@ -138,10 +136,10 @@ namespace big
 		{
 			g_pointers->m_send_event_ack(event_manager, source_player, target_player, event_index, event_handled_bitset);
 
-			if (g->notifications.received_event.request_control_event.log)
+			if (g->notifications.modder_detection.log)
 				LOG(INFO) << "RECEIVED_EVENT_HANDLER : " << source_player->get_name() << " sent modder event.";
 
-			if (g->notifications.received_event.request_control_event.notify)
+			if (g->notifications.modder_detection.notify)
 				g_notification_service->push_warning("Protection", fmt::format("Denied player control request from {}", source_player->get_name()));
 
 			return;

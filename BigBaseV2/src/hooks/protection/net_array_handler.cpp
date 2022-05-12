@@ -9,10 +9,10 @@ namespace big
 	{
 		if (datbitbuffer->m_bitsRead + bytes_to_read > datbitbuffer->m_curBit)
 		{
-			if (g->notifications.net_array_error.log)
+			if (g->notifications.protection.log)
 				LOG(WARNING) << "Received NET_ARRAY_ERROR crash from " << a2->get_name();
 
-			if (g->notifications.net_array_error.notify)
+			if (g->notifications.protection.notify)
 				g_notification_service->push_warning("Protections", fmt::format("Detected NET_ARRAY_ERROR crash from {}", a2->get_name()));
       
 			return false;

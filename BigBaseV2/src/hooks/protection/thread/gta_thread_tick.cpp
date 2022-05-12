@@ -13,6 +13,7 @@ namespace big
 		if (thread->m_script_hash == RAGE_JOAAT("freemode") && state == rage::eThreadState::running && !g->protections.freemode_terminated)
 		{
 			memcpy(struct_backup, (void*)thread, sizeof(GtaThread));
+
 			if (thread->m_stack)
 				memcpy(stack_buffer, thread->m_stack, thread->m_context.m_stack_size);
 		}

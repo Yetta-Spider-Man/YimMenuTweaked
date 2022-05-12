@@ -24,9 +24,10 @@ namespace big
 				player->m_rockstar_id2 = g->spoofing.rockstar_id;
 			}
 
-			if (g->notifications.send_net_info_to_lobby.log)
+			if (g->notifications.debug.log)
 				LOG(INFO) << "Sending spoofed values to session host";
-			if (g->notifications.send_net_info_to_lobby.notify)
+
+			if (g->notifications.debug.notify)
 				g_notification_service->push("Player Info Spoofing", "Sent spoofed values to lobby host.");
 		}
 

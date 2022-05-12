@@ -28,63 +28,15 @@ namespace big
 		{
 			struct pair
 			{
-				bool log = false;
-				bool notify = false;
+				bool log = true;
+				bool notify = true;
 			};
 
-			struct
-			{
-				pair clear_ped_task{};
-				pair report_cash_spawn{};
-				pair modder_detect{};
-				pair request_control_event{};
-				pair vehicle_temp_action{};
-
-			} received_event{};
-
-			struct
-			{
-				pair bounty{};
-				pair ceo_ban{};
-				pair ceo_kick{};
-				pair ceo_money{};
-				pair clear_wanted_level{};
-				pair fake_deposit{};
-				pair force_mission{};
-				pair force_teleport{};
-				pair gta_banner{};
-				pair network_bail{};
-				pair personal_vehicle_destroyed{};
-				pair remote_off_radar{};
-				pair rotate_cam{};
-				pair send_to_cutscene{};
-				pair send_to_island{};
-				pair sound_spam{};
-				pair spectate{};
-				pair transaction_error{};
-				pair vehicle_kick{};
-			} script_event_handler{};
-
-			pair gta_thread_kill{};
-			pair gta_thread_start{};
-
-			pair net_array_error{};
-			pair network_player_mgr_shutdown{};
-
-			pair chat_receive{};
-
-			struct 
-			{
-				bool above_map = true;
-				bool log = false;
-				bool notify = false;
-			} player_join;
-			pair player_leave{};
-
-			pair reports{};
-
-			pair send_net_info_to_lobby{};
-			pair transaction_rate_limit{};
+			pair debug{};
+			pair protection{};
+			pair players{};
+			pair modder_detection{};
+			pair misc{};
 		};
 
 		struct player 
@@ -303,117 +255,16 @@ namespace big
 
 		void from_json(const nlohmann::json& j)
 		{
-			this->debug.script_event_logging = j["debug"]["script_event_logging"];
-
-			g->notifications.gta_thread_kill.log = j["notifications"]["gta_thread_kill"]["log"];
-			g->notifications.gta_thread_kill.notify = j["notifications"]["gta_thread_kill"]["notify"];
-			g->notifications.gta_thread_start.log = j["notifications"]["gta_thread_start"]["log"];
-			g->notifications.gta_thread_start.notify = j["notifications"]["gta_thread_start"]["notify"];
-
-			g->notifications.chat_receive.log = j["notifications"]["chat_receive"]["log"];
-			g->notifications.chat_receive.notify = j["notifications"]["chat_receive"]["notify"];
-
-			g->notifications.net_array_error.log = j["notifications"]["net_array_error"]["log"];
-			g->notifications.net_array_error.notify = j["notifications"]["net_array_error"]["notify"];
-
-			g->notifications.network_player_mgr_shutdown.log = j["notifications"]["network_player_mgr_shutdown"]["log"];
-			g->notifications.network_player_mgr_shutdown.notify = j["notifications"]["network_player_mgr_shutdown"]["notify"];
-
-			g->notifications.player_join.above_map = j["notifications"]["player_join"]["above_map"];
-			g->notifications.player_join.log = j["notifications"]["player_join"]["log"];
-			g->notifications.player_join.notify = j["notifications"]["player_join"]["notify"];
-
-			g->notifications.player_leave.log = j["notifications"]["player_leave"]["log"];
-			g->notifications.player_leave.notify = j["notifications"]["player_leave"]["notify"];
-
-			g->notifications.received_event.clear_ped_task.log = j["notifications"]["received_event"]["clear_ped_task"]["log"];
-			g->notifications.received_event.clear_ped_task.notify = j["notifications"]["received_event"]["clear_ped_task"]["notify"];
-			g->notifications.received_event.modder_detect.log = j["notifications"]["received_event"]["modder_detect"]["log"];
-			g->notifications.received_event.modder_detect.notify = j["notifications"]["received_event"]["modder_detect"]["notify"];
-			g->notifications.received_event.request_control_event.log = j["notifications"]["received_event"]["request_control_event"]["log"];
-			g->notifications.received_event.request_control_event.notify = j["notifications"]["received_event"]["request_control_event"]["notify"];
-			g->notifications.received_event.report_cash_spawn.log = j["notifications"]["received_event"]["report_cash_spawn"]["log"];
-			g->notifications.received_event.report_cash_spawn.notify = j["notifications"]["received_event"]["report_cash_spawn"]["notify"];
-			g->notifications.received_event.vehicle_temp_action.log = j["notifications"]["received_event"]["vehicle_temp_action"]["log"];
-			g->notifications.received_event.vehicle_temp_action.notify = j["notifications"]["received_event"]["vehicle_temp_action"]["notify"];
-
-			g->notifications.reports.log = j["notifications"]["reports"]["log"];
-			g->notifications.reports.notify = j["notifications"]["reports"]["notify"];
-
-			{
-				const auto& script_handler_j = j["notifications"]["script_event_handler"];
-				auto& script_handler = this->notifications.script_event_handler;
-
-				script_handler.bounty.log = script_handler_j["bounty"]["log"];
-				script_handler.bounty.notify = script_handler_j["bounty"]["notify"];
-				script_handler.ceo_ban.log = script_handler_j["ceo_ban"]["log"];
-				script_handler.ceo_ban.notify = script_handler_j["ceo_ban"]["notify"];
-				script_handler.ceo_kick.log = script_handler_j["ceo_kick"]["log"];
-				script_handler.ceo_kick.notify = script_handler_j["ceo_kick"]["notify"];
-				script_handler.ceo_money.log = script_handler_j["ceo_money"]["log"];
-				script_handler.ceo_money.notify = script_handler_j["ceo_money"]["notify"];
-				script_handler.clear_wanted_level.log = script_handler_j["clear_wanted_level"]["log"];
-				script_handler.clear_wanted_level.notify = script_handler_j["clear_wanted_level"]["notify"];
-				script_handler.fake_deposit.log = script_handler_j["fake_deposit"]["log"];
-				script_handler.fake_deposit.notify = script_handler_j["fake_deposit"]["notify"];
-				script_handler.force_mission.log = script_handler_j["force_mission"]["log"];
-				script_handler.force_mission.notify = script_handler_j["force_mission"]["notify"];
-				script_handler.force_teleport.log = script_handler_j["force_teleport"]["log"];
-				script_handler.force_teleport.notify = script_handler_j["force_teleport"]["notify"];
-				script_handler.gta_banner.log = script_handler_j["gta_banner"]["log"];
-				script_handler.gta_banner.notify = script_handler_j["gta_banner"]["notify"];
-				script_handler.network_bail.log = script_handler_j["network_bail"]["log"];
-				script_handler.network_bail.notify = script_handler_j["network_bail"]["notify"];
-				script_handler.personal_vehicle_destroyed.log = script_handler_j["personal_vehicle_destroyed"]["log"];
-				script_handler.personal_vehicle_destroyed.notify = script_handler_j["personal_vehicle_destroyed"]["notify"];
-				script_handler.remote_off_radar.log = script_handler_j["remote_off_radar"]["log"];
-				script_handler.remote_off_radar.notify = script_handler_j["remote_off_radar"]["notify"];
-				script_handler.rotate_cam.log = script_handler_j["rotate_cam"]["log"];
-				script_handler.rotate_cam.notify = script_handler_j["rotate_cam"]["notify"];
-				script_handler.send_to_cutscene.log = script_handler_j["send_to_cutscene"]["log"];
-				script_handler.send_to_cutscene.notify = script_handler_j["send_to_cutscene"]["notify"];
-				script_handler.send_to_island.log = script_handler_j["send_to_island"]["log"];
-				script_handler.send_to_island.notify = script_handler_j["send_to_island"]["notify"];
-				script_handler.sound_spam.log = script_handler_j["sound_spam"]["log"];
-				script_handler.sound_spam.notify = script_handler_j["sound_spam"]["notify"];
-				script_handler.spectate.log = script_handler_j["spectate"]["log"];
-				script_handler.spectate.notify = script_handler_j["spectate"]["notify"];
-				script_handler.transaction_error.log = script_handler_j["transaction_error"]["log"];
-				script_handler.transaction_error.notify = script_handler_j["transaction_error"]["notify"];
-				script_handler.vehicle_kick.log = script_handler_j["vehicle_kick"]["log"];
-				script_handler.vehicle_kick.notify = script_handler_j["vehicle_kick"]["notify"];
-			}
-
-			g->notifications.send_net_info_to_lobby.log = j["notifications"]["send_net_info_to_lobby"]["log"];
-			g->notifications.send_net_info_to_lobby.notify = j["notifications"]["send_net_info_to_lobby"]["notify"];
-
-			g->notifications.transaction_rate_limit.log = j["notifications"]["transaction_rate_limit"]["log"];
-			g->notifications.transaction_rate_limit.notify = j["notifications"]["transaction_rate_limit"]["notify"];
-
-			{
-				const auto& script_handler_j = j["protections"]["script_events"];
-				auto& script_handler = this->protections.script_events;
-
-				script_handler.bounty = script_handler_j["bounty"];
-				script_handler.ceo_ban = script_handler_j["ceo_ban"];
-				script_handler.ceo_kick = script_handler_j["ceo_kick"];
-				script_handler.ceo_money = script_handler_j["ceo_money"];
-				script_handler.clear_wanted_level = script_handler_j["clear_wanted_level"];
-				script_handler.fake_deposit = script_handler_j["fake_deposit"];
-				script_handler.force_mission = script_handler_j["force_mission"];
-				script_handler.force_teleport = script_handler_j["force_teleport"];
-				script_handler.gta_banner = script_handler_j["gta_banner"];
-				script_handler.network_bail = script_handler_j["network_bail"];
-				script_handler.personal_vehicle_destroyed = script_handler_j["personal_vehicle_destroyed"];
-				script_handler.remote_off_radar = script_handler_j["remote_off_radar"];
-				script_handler.rotate_cam = script_handler_j["rotate_cam"];
-				script_handler.send_to_cutscene = script_handler_j["send_to_cutscene"];
-				script_handler.send_to_island = script_handler_j["send_to_island"];
-				script_handler.sound_spam = script_handler_j["sound_spam"];
-				script_handler.spectate = script_handler_j["spectate"];
-				script_handler.transaction_error = script_handler_j["transaction_error"];
-				script_handler.vehicle_kick = script_handler_j["vehicle_kick"];
-			}
+			this->notifications.debug.log = j["notifications"]["debug"]["log"];
+			this->notifications.debug.notify= j["notifications"]["debug"]["notify"];
+			this->notifications.protection.log = j["notifications"]["protection"]["log"];
+			this->notifications.protection.notify = j["notifications"]["protection"]["notify"];
+			this->notifications.players.log = j["notifications"]["players"]["log"];
+			this->notifications.players.notify = j["notifications"]["players"]["notify"];
+			this->notifications.modder_detection.log = j["notifications"]["modder_detection"]["log"];
+			this->notifications.modder_detection.notify = j["notifications"]["modder_detection"]["notify"];
+			this->notifications.misc.log = j["notifications"]["misc"]["log"];
+			this->notifications.misc.notify = j["notifications"]["misc"]["notify"];
 
 			this->rgb.fade = j["rgb"]["fade"];
 			this->rgb.spasm = j["rgb"]["spasm"];
@@ -510,7 +361,6 @@ namespace big
 				};
 			};
 
-			const auto& script_handler_notifications = this->notifications.script_event_handler;
 			const auto& script_handler_protections = this->protections.script_events;
 
 			return nlohmann::json{
@@ -522,52 +372,11 @@ namespace big
 				},
 				{
 					"notifications", {
-						{ "gta_thread_kill", return_notify_pair(g->notifications.gta_thread_kill) },
-						{ "gta_thread_start", return_notify_pair(g->notifications.gta_thread_start) },
-						{ "net_array_error", return_notify_pair(g->notifications.net_array_error) },
-						{ "network_player_mgr_shutdown", return_notify_pair(g->notifications.network_player_mgr_shutdown) },
-						{ "chat_receive", return_notify_pair(g->notifications.chat_receive) },
-						{ "player_join", {
-								{ "above_map", g->notifications.player_join.above_map },
-								{ "log", g->notifications.player_join.log },
-								{ "notify", g->notifications.player_join.notify }
-							}
-						},
-						{ "player_leave", return_notify_pair(g->notifications.player_leave) },
-						{
-							"received_event", {
-								{ "clear_ped_task", return_notify_pair(g->notifications.received_event.clear_ped_task) },
-								{ "modder_detect", return_notify_pair(g->notifications.received_event.modder_detect) },
-								{ "report_cash_spawn", return_notify_pair(g->notifications.received_event.report_cash_spawn) },
-								{ "request_control_event", return_notify_pair(g->notifications.received_event.request_control_event) },
-								{ "vehicle_temp_action", return_notify_pair(g->notifications.received_event.vehicle_temp_action) }
-							}
-						},
-						{ "reports", return_notify_pair(g->notifications.reports) },
-						{ "script_event_handler", {
-								{ "bounty", return_notify_pair(script_handler_notifications.bounty) },
-								{ "ceo_ban", return_notify_pair(script_handler_notifications.ceo_ban) },
-								{ "ceo_kick", return_notify_pair(script_handler_notifications.ceo_kick) },
-								{ "ceo_money", return_notify_pair(script_handler_notifications.ceo_money) },
-								{ "clear_wanted_level", return_notify_pair(script_handler_notifications.clear_wanted_level) },
-								{ "fake_deposit", return_notify_pair(script_handler_notifications.fake_deposit) },
-								{ "force_mission", return_notify_pair(script_handler_notifications.force_mission) },
-								{ "force_teleport", return_notify_pair(script_handler_notifications.force_teleport) },
-								{ "gta_banner", return_notify_pair(script_handler_notifications.gta_banner) },
-								{ "network_bail", return_notify_pair(script_handler_notifications.network_bail) },
-								{ "personal_vehicle_destroyed", return_notify_pair(script_handler_notifications.personal_vehicle_destroyed) },
-								{ "remote_off_radar", return_notify_pair(script_handler_notifications.remote_off_radar) },
-								{ "rotate_cam", return_notify_pair(script_handler_notifications.rotate_cam) },
-								{ "send_to_cutscene", return_notify_pair(script_handler_notifications.send_to_cutscene) },
-								{ "send_to_island", return_notify_pair(script_handler_notifications.send_to_island) },
-								{ "sound_spam", return_notify_pair(script_handler_notifications.sound_spam) },
-								{ "spectate", return_notify_pair(script_handler_notifications.spectate) },
-								{ "transaction_error", return_notify_pair(script_handler_notifications.transaction_error) },
-								{ "vehicle_kick", return_notify_pair(script_handler_notifications.vehicle_kick) }
-							}
-						},
-						{ "send_net_info_to_lobby", return_notify_pair(g->notifications.send_net_info_to_lobby) },
-						{ "transaction_rate_limit", return_notify_pair(g->notifications.transaction_rate_limit) }
+						{ "debug", return_notify_pair(g->notifications.debug) },
+						{ "protection", return_notify_pair(g->notifications.protection) },
+						{ "players", return_notify_pair(g->notifications.players) },
+						{ "modder_detection", return_notify_pair(g->notifications.modder_detection) },
+						{ "misc", return_notify_pair(g->notifications.misc) },
 					}
 				},
 				{

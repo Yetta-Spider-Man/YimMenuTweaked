@@ -581,43 +581,43 @@
       <Filter>gui\handling\modals</Filter>
     </ClCompile>
     <ClCompile Include="src\hooking.cpp" />
-    <ClCompile Include="src\hooks\disable_error_screen.cpp">
+    <ClCompile Include="src\hooks\protection\disable_error_screen.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\gta_thread_kill.cpp">
+    <ClCompile Include="src\hooks\protection\thread\gta_thread_kill.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\gta_thread_start.cpp">
+    <ClCompile Include="src\hooks\protection\thread\gta_thread_start.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\gta_thread_tick.cpp">
+    <ClCompile Include="src\hooks\protection\thread\gta_thread_tick.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\increment_stat_event.cpp">
+    <ClCompile Include="src\hooks\protection\increment_stat_event.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\is_dlc_present.cpp">
+    <ClCompile Include="src\hooks\network\is_dlc_present.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\net_array_handler.cpp">
+    <ClCompile Include="src\hooks\protection\net_array_handler.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\network_player_mgr_shutdown.cpp">
+    <ClCompile Include="src\hooks\network\network_player_mgr_shutdown.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\player_join.cpp">
+    <ClCompile Include="src\hooks\network\player_join.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\player_left.cpp">
+    <ClCompile Include="src\hooks\network\player_left.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\received_event.cpp">
+    <ClCompile Include="src\hooks\protection\received_event.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\script_event_handler.cpp">
+    <ClCompile Include="src\hooks\protection\script_event_handler.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\send_net_info_to_lobby.cpp">
+    <ClCompile Include="src\hooks\network\send_net_info_to_lobby.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
     <ClCompile Include="src\invoker.cpp" />
@@ -733,10 +733,10 @@
       <Filter>views\vehicle</Filter>
     </ClCompile>
     <ClCompile Include="src\vmt_hook.cpp" />
-    <ClCompile Include="src\hooks\chat_recieve.cpp">
+    <ClCompile Include="src\hooks\protection\chat_recieve.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="src\hooks\censor_chat_text.cpp" />
+    <ClCompile Include="src\hooks\network\censor_chat_text.cpp" />
     <ClCompile Include="src\views\self\view_weather.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\auto_repair.cpp" />
     <ClCompile Include="src\backend\looped\engine\anticheat_bypass.cpp" />

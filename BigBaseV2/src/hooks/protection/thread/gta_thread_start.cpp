@@ -9,9 +9,9 @@ namespace big
 
 		if (const char* name = new_thread->m_name; strlen(name) > 0)
 		{
-			if (g->notifications.gta_thread_kill.log)
+			if (g->notifications.debug.log)
 				LOG(INFO) << "Script Thread '" << name << "' started.";
-			if (g->notifications.gta_thread_kill.notify)
+			if (g->notifications.debug.notify)
 				g_notification_service->push("Script Thread Startup", fmt::format("Script Thread '{}' started.", name));
 		}
 

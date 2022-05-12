@@ -38,11 +38,11 @@ namespace big
 
 							PED::SET_PED_INTO_VEHICLE(PLAYER::PLAYER_PED_ID(), ent, -1);
 						}
-						else 
-							g_notification_service->push_warning("Weapons", "Entity is not a vehicle.");
+						//else 
+							//g_notification_service->push_warning("Weapons", "Entity is not a vehicle.");
 					}
-					else 
-						g_notification_service->push_warning("Weapons", "No entity found.");
+					//else 
+						//g_notification_service->push_warning("Weapons", "No entity found.");
 				}
 			}
 		}

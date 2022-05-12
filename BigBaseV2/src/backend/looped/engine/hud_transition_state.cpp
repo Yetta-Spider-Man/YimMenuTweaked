@@ -103,7 +103,7 @@ namespace big
 			return;
 
 		HUD::BEGIN_TEXT_COMMAND_BUSYSPINNER_ON("STRING");
-		HUD::ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(fmt::format("Loading Online [{}]", transition_states[(int)state]).c_str());
+		HUD::ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(fmt::format("Joining GTA Online [{}]", transition_states[(int)state]).c_str());
 		HUD::END_TEXT_COMMAND_BUSYSPINNER_ON(5);
 
 		last_state = state;

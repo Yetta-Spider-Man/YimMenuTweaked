@@ -28,11 +28,11 @@ namespace big
 					{
 						if (ENTITY::IS_ENTITY_A_VEHICLE(entity))
 							vehicle::repair(entity);
-						else
-							g_notification_service->push_warning("Weapons", "Entity is not a vehicle.");
+						//else
+							//g_notification_service->push_warning("Weapons", "Entity is not a vehicle.");
 					}
-					else 
-						g_notification_service->push_warning("Weapons", "No entity found.");
+					//else 
+						//g_notification_service->push_warning("Weapons", "No entity found.");
 				}
 			}
 		}

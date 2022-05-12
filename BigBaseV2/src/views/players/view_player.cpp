@@ -104,6 +104,8 @@ namespace big
 					toxic::blame_explode_player(g_player_service->get_selected()->id(),g_player_service->get_selected()->id(),eExplosionType::PLANE, 1000, false, true, 0.f);
 				});
 
+				ImGui::SameLine();
+
 				components::button("Taze", [] 
 				{
 					toxic::taze_player(g_player_service->get_selected()->id());
@@ -113,6 +115,8 @@ namespace big
 				{
 					toxic::kick_from_vehicle(g_player_service->get_selected()->id());
 				});
+
+				ImGui::SameLine();
 
 				components::button("Desync from host", [] 
 				{
