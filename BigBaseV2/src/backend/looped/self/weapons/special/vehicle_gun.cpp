@@ -7,7 +7,7 @@ namespace big
 {
 	static const int controls[] = { 14, 15, 24 };
 
-	void backend_self::weapons::vehicle_gun()
+	void backend_self::weapons::special::vehicle_gun()
 	{
 		bool bVehicleGun = g->weapons.custom_weapon == CustomWeapon::VEHICLE_GUN;
 
@@ -34,11 +34,8 @@ namespace big
 					location.x += dist * cos(pitch) * cos(yaw);
 					location.y += dist * sin(yaw) * cos(pitch);
 					location.z += dist * sin(pitch);
-					Vehicle veh = vehicle::spawn(
-						(const char*)g->weapons.vehicle_gun_model,
-						location,
-						ENTITY::GET_ENTITY_HEADING(player)
-					);
+
+					Vehicle veh = vehicle::spawn((const char*)g->weapons.vehicle_gun_model, location, ENTITY::GET_ENTITY_HEADING(player));
 
 					Vector3 velocity;
 					dist = 150.f;

@@ -13,7 +13,7 @@ namespace big
 	static const int scroll = 0;
 	static const int controls[] = { 14, 15, 24 };
 
-	void backend_self::weapons::gravity_gun()
+	void backend_self::weapons::special::gravity_gun()
 	{
 		bool bGravityGun = g->weapons.custom_weapon == CustomWeapon::GRAVITY_GUN;
 		double multiplier = 3.0;

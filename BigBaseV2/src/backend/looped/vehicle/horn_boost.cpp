@@ -1,6 +1,7 @@
 #include "backend/looped/looped.hpp"
 #include "gta/enums.hpp"
 #include "natives.hpp"
+#include "util/vehicle.hpp"
 
 namespace big
 {
@@ -18,12 +19,12 @@ namespace big
 		if (!g->vehicle.horn_boost)
 			return;
 
-		if (PAD::IS_CONTROL_PRESSED(0, (int)ControllerInputs::INPUT_VEH_HORN) && PLAYER::IS_PLAYER_PRESSING_HORN(player))
-		{
-			if (NETWORK::NETWORK_HAS_CONTROL_OF_ENTITY(vehicle))
-			{
-				VEHICLE::SET_VEHICLE_FORWARD_SPEED(vehicle, 79);
-			}
-		}
+		if (!(PAD::IS_CONTROL_PRESSED(0, (int)ControllerInputs::INPUT_VEH_HORN) && PLAYER::IS_PLAYER_PRESSING_HORN(player)))
+			return;
+
+		if (!vehicle::owns_vehicle())
+			return;
+
+		VEHICLE::SET_VEHICLE_FORWARD_SPEED(vehicle, 79);
 	}
 }

@@ -10,6 +10,7 @@ namespace big
 		if (g->weapons.increased_damage != 1) 
 		{
 			Hash weapon{}; 
+
 			WEAPON::GET_CURRENT_PED_WEAPON(player_ped, &weapon, 0);
 			WEAPON::SET_WEAPON_DAMAGE_MODIFIER_THIS_FRAME_(weapon, g->weapons.increased_damage);
 		}

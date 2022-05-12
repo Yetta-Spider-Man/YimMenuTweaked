@@ -1,17 +1,16 @@
 #include "backend/looped/looped.hpp"
 #include "core/enums.hpp"
 #include "util/entity.hpp"
-#include "util/vehicle.hpp"
 
 namespace big
 {
 	static const int controls[] = { 14, 15, 24 };
 
-	void backend_self::weapons::repair_gun()
+	void backend_self::weapons::special::cage_gun()
 	{
-		bool bRepairGun = g->weapons.custom_weapon == CustomWeapon::REPAIR_GUN;
+		bool bCageGun = g->weapons.custom_weapon == CustomWeapon::CAGE_GUN;
 
-		if (bRepairGun)
+		if (bCageGun)
 		{
 			if (PAD::IS_DISABLED_CONTROL_PRESSED(0, 25))
 			{
@@ -26,13 +25,9 @@ namespace big
 
 					if (entity::raycast(&entity))
 					{
-						if (ENTITY::IS_ENTITY_A_VEHICLE(entity))
-							vehicle::repair(entity);
-						else
-							g_notification_service->push_warning("Weapons", "Entity is not a vehicle.");
+						if (ENTITY::IS_ENTITY_A_PED(entity))
+							entity::cage_ped(entity);
 					}
-					else 
-						g_notification_service->push_warning("Weapons", "No entity found.");
 				}
 			}
 		}

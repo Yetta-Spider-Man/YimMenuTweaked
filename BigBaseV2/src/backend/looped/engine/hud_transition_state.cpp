@@ -84,6 +84,7 @@ namespace big
 	void backend_engine::hud_transition_state()
 	{
 		const auto state = *transition_state.as<eTransitionState*>();
+
 		if (last_state == eTransitionState::TRANSITION_STATE_MAX)
 			last_state = state;
 
@@ -97,7 +98,7 @@ namespace big
 		if (HUD::BUSYSPINNER_IS_ON())
 			HUD::BUSYSPINNER_OFF();
 
-		// sometimes when going into a single player mission or transition this one remains on screen permanently
+		// Sometimes when going into a single player mission or transition this one remains on screen permanently
 		if (state == eTransitionState::TRANSITION_STATE_TERMINATE_MAINTRANSITION)
 			return;
 

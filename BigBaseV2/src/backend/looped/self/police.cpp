@@ -4,10 +4,10 @@ namespace big
 {
 	void backend_self::police()
 	{
-		if (g_local_player == nullptr || g_local_player->m_player_info == nullptr) 
-			return;
-
 		auto playerInfo = g_local_player->m_player_info;
+
+		if (g_local_player == nullptr || playerInfo == nullptr)
+			return;
 
 		if (g->self.never_wanted)
 			playerInfo->m_wanted_level = 0;

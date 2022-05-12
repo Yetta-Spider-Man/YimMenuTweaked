@@ -69,10 +69,10 @@ namespace big::vehicle
 
 				script::get_current()->yield();
 			}
+
 			if (!STREAMING::HAS_MODEL_LOADED(hash))
 			{
 				g_notification_service->push_warning("Spawn", "Failed to spawn model, did you give an incorrect model?");
-
 				return -1;
 			}
 
@@ -80,18 +80,26 @@ namespace big::vehicle
 			Vehicle veh = VEHICLE::CREATE_VEHICLE(hash, location.x, location.y, location.z, heading, is_networked, false, false);
 			*(unsigned short*)g_pointers->m_model_spawn_bypass = 0x0574;
 
+			NETWORK::NETWORK_FADE_IN_ENTITY(veh, TRUE, FALSE);
+
 			script::get_current()->yield();
 
 			STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(hash);
 
 			if (*g_pointers->m_is_session_started)
 			{
+				int networkId = NETWORK::VEH_TO_NET(veh);
+
 				DECORATOR::DECOR_SET_INT(veh, "MPBitset", 0);
 				ENTITY::SET_ENTITY_CLEANUP_BY_ENGINE_(veh, true);
-				int networkId = NETWORK::VEH_TO_NET(veh);
+
 				if (NETWORK::NETWORK_GET_ENTITY_IS_NETWORKED(veh))
 					NETWORK::SET_NETWORK_ID_EXISTS_ON_ALL_MACHINES(networkId, true);
+
 				VEHICLE::SET_VEHICLE_IS_STOLEN(veh, false);
+				VEHICLE::SET_VEHICLE_UNDRIVEABLE(veh, FALSE);
+				VEHICLE::SET_VEHICLE_IS_WANTED(veh, FALSE);
+				VEHICLE::SET_VEHICLE_ENGINE_ON(veh, TRUE, TRUE, FALSE);
 			}
 
 			return veh;

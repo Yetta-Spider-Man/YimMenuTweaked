@@ -1,66 +1,33 @@
 #include "backend/looped/looped.hpp"
 #include "pointers.hpp"
 
+//https://github.com/Yimura/YimMenu/commits?author=xM4ddy
+//PLEASE LEARN HOW TO CODE!!!
+
 namespace big
 {
 	static std::vector<std::pair<uint32_t, float>> og_spread_values{};
 	static std::vector<std::pair<uint32_t, float>> og_recoil_values{};
 	static uint32_t prev_weapon_hash{};
 
-	bool is_spread_value_cached(uint32_t hash)
-	{
-		return std::find_if(og_spread_values.begin(), og_spread_values.end(), [hash](auto const entry)
-			{
-				return hash == entry.first;
-			}) != og_spread_values.end();
-	}
+	bool is_spread_value_cached(uint32_t hash) { return std::find_if(og_spread_values.begin(), og_spread_values.end(), [hash](auto const entry) {return hash == entry.first; }) != og_spread_values.end(); }
 
-	float get_og_spread_value(uint32_t hash)
-	{
-		return std::find_if(og_spread_values.begin(), og_spread_values.end(), [hash](auto const entry)
-			{
-				return hash == entry.first;
-			})->second;
-	}
+	float get_og_spread_value(uint32_t hash) { return std::find_if(og_spread_values.begin(), og_spread_values.end(), [hash](auto const entry) {return hash == entry.first; })->second; }
 
-	float get_spread_value(uint32_t hash)
-	{
-		return g->weapons.no_spread
-			? 0.f
-			: get_og_spread_value(hash);
-	}
+	float get_spread_value(uint32_t hash) { return g->weapons.no_spread ? 0.f : get_og_spread_value(hash); }
 
-	bool is_recoil_value_cached(uint32_t hash)
-	{
-		return std::find_if(og_recoil_values.begin(), og_recoil_values.end(), [hash](auto const entry)
-			{
-				return hash == entry.first;
-			}) != og_recoil_values.end();
-	}
+	bool is_recoil_value_cached(uint32_t hash) { return std::find_if(og_recoil_values.begin(), og_recoil_values.end(), [hash](auto const entry) {return hash == entry.first; }) != og_recoil_values.end(); }
 
-	float get_og_recoil_value(uint32_t hash)
-	{
-		return std::find_if(og_recoil_values.begin(), og_recoil_values.end(), [hash](auto const entry)
-			{
-				return hash == entry.first;
-			})->second;
-	}
+	float get_og_recoil_value(uint32_t hash) { return std::find_if(og_recoil_values.begin(), og_recoil_values.end(), [hash](auto const entry) {return hash == entry.first; })->second; }
 
-	float get_recoil_value(uint32_t hash)
-	{
-		return g->weapons.no_spread
-			? 0.f
-			: get_og_recoil_value(hash);
-	}
+	float get_recoil_value(uint32_t hash) { return g->weapons.no_spread ? 0.f : get_og_recoil_value(hash); }
 
 	void backend_self::weapons::no_spread()
 	{
 		if (!g_local_player)
 			return;
 
-		auto* const weapon_mgr = g_local_player->m_weapon_manager;
-
-		if (weapon_mgr)
+		if (auto* const weapon_mgr = g_local_player->m_weapon_manager; weapon_mgr)
 		{
 			auto const cur_weapon_hash = weapon_mgr->m_selected_weapon_hash;
 			if (prev_weapon_hash != cur_weapon_hash)

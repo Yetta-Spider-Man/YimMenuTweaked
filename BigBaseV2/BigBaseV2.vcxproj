@@ -305,16 +305,16 @@
     <ClCompile Include="src\backend\looped\vehicle\speedo_meter.cpp" />
     <ClCompile Include="src\backend\looped\vehicle\vehicle_god.cpp" />
     <ClCompile Include="src\backend\looped\self\weapons\ammo_special_type.cpp" />
-    <ClCompile Include="src\backend\looped\self\weapons\cage_gun.cpp" />
-    <ClCompile Include="src\backend\looped\self\weapons\delete_gun.cpp" />
+    <ClCompile Include="src\backend\looped\self\weapons\special\cage_gun.cpp" />
+    <ClCompile Include="src\backend\looped\self\weapons\special\delete_gun.cpp" />
     <ClCompile Include="src\backend\looped\self\weapons\force_crosshairs.cpp" />
-    <ClCompile Include="src\backend\looped\self\weapons\gravity_gun.cpp" />
+    <ClCompile Include="src\backend\looped\self\weapons\special\gravity_gun.cpp" />
     <ClCompile Include="src\backend\looped\self\weapons\increase_damage.cpp" />
     <ClCompile Include="src\backend\looped\self\weapons\infinite_ammo.cpp" />
     <ClCompile Include="src\backend\looped\self\weapons\no_spread.cpp" />
-    <ClCompile Include="src\backend\looped\self\weapons\repair_gun.cpp" />
-    <ClCompile Include="src\backend\looped\self\weapons\steal_vehicle_gun.cpp" />
-    <ClCompile Include="src\backend\looped\self\weapons\vehicle_gun.cpp" />
+    <ClCompile Include="src\backend\looped\self\weapons\special\repair_gun.cpp" />
+    <ClCompile Include="src\backend\looped\self\weapons\special\steal_vehicle_gun.cpp" />
+    <ClCompile Include="src\backend\looped\self\weapons\special\vehicle_gun.cpp" />
     <ClCompile Include="src\common.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

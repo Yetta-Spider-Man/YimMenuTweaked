@@ -461,16 +461,16 @@
     <ClCompile Include="src\backend\looped\self\weapons\ammo_special_type.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\weapons\cage_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\special\cage_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\weapons\delete_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\special\delete_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\self\weapons\force_crosshairs.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\weapons\gravity_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\special\gravity_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
     <ClCompile Include="src\backend\looped\self\weapons\increase_damage.cpp">
@@ -482,13 +482,13 @@
     <ClCompile Include="src\backend\looped\self\weapons\no_spread.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\weapons\repair_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\special\repair_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\weapons\steal_vehicle_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\special\steal_vehicle_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="src\backend\looped\self\weapons\vehicle_gun.cpp">
+    <ClCompile Include="src\backend\looped\self\weapons\special\vehicle_gun.cpp">
       <Filter>backend\looped\weapons</Filter>
     </ClCompile>
     <ClCompile Include="src\common.cpp" />

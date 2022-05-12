@@ -79,16 +79,16 @@ namespace big
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			backend_self::weapons::ammo_special_type();
-			backend_self::weapons::cage_gun();
-			backend_self::weapons::delete_gun();
+			backend_self::weapons::special::cage_gun();
+			backend_self::weapons::special::delete_gun();
 			backend_self::weapons::force_crosshairs();
-			backend_self::weapons::gravity_gun();
+			backend_self::weapons::special::gravity_gun();
 			backend_self::weapons::increased_damage();
 			backend_self::weapons::infinite_ammo();
 			backend_self::weapons::no_spread();
-			backend_self::weapons::repair_gun();
-			backend_self::weapons::steal_vehicle_gun();
-			backend_self::weapons::vehicle_gun();
+			backend_self::weapons::special::repair_gun();
+			backend_self::weapons::special::steal_vehicle_gun();
+			backend_self::weapons::special::vehicle_gun();
 
 		}QUEUE_JOB_END_CLAUSE
 

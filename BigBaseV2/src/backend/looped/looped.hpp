@@ -40,18 +40,21 @@ namespace big
 		{
 		public:
 			static void force_crosshairs();
-			
 			static void ammo_special_type();
 			static void increased_damage();
 			static void infinite_ammo();
 			static void no_spread();
 
-			static void repair_gun();
-			static void steal_vehicle_gun();
-			static void vehicle_gun();
-			static void cage_gun();
-			static void delete_gun();
-			static void gravity_gun();
+			class special
+			{
+			public:
+				static void repair_gun();
+				static void steal_vehicle_gun();
+				static void vehicle_gun();
+				static void cage_gun();
+				static void delete_gun();
+				static void gravity_gun();
+			};
 		};
 	};
 

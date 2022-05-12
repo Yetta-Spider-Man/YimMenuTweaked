@@ -21,8 +21,10 @@ namespace big
 			if (!g->vehicle.auto_repair)
 				return;
 
-			if (vehicle::owns_vehicle())
-				vehicle::repair(vehicle);
+			if (!vehicle::owns_vehicle())
+				return;
+				
+			vehicle::repair(vehicle);
 
 			tick_1 = now;
 		}

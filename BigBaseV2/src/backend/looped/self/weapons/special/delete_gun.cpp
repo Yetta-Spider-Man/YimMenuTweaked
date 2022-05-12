@@ -7,7 +7,7 @@ namespace big
 {
 	static const int controls[] = { 14, 15, 24 };
 
-	void backend_self::weapons::delete_gun()
+	void backend_self::weapons::special::delete_gun()
 	{
 		bool bCageGun = g->weapons.custom_weapon == CustomWeapon::DELETE_GUN;
 
