@@ -5,7 +5,7 @@ namespace big::remote
 {
 	inline bool download_binary(const std::string_view file_url, const std::filesystem::path& location)
 	{
-		/*std::ofstream file(location, std::ios::binary | std::ios::trunc);
+		std::ofstream file(location, std::ios::binary | std::ios::trunc);
 
 		try
 		{
@@ -25,8 +25,6 @@ namespace big::remote
 		}
 		file.close();
 
-		return true;*/
-
-		return false;
+		return true;
 	}
 }
